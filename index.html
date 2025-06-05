@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio de Jules Laconfourque – Développeur Full-Stack Python" />
+    <title>Jules Laconfourque – Développeur Full-Stack</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<!-- Navigation -->
+<header>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">JL</div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#competences">Compétences</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section id="accueil" class="hero fade-in">
+        <div class="hero-content">
+            <h1>Jules Laconfourque</h1>
+            <p class="subtitle">Développeur Full-Stack</p>
+            <p class="description">
+                Ce que j’aime avant tout, c’est résoudre des problèmes. Concevoir des applications utiles, fluides, bien pensées, c’est ce qui me motive. Curieux, rigoureux et assoiffé d'apprendre, je cherche à créer des outils clairs, performants, et qui répondent vraiment aux besoins.
+            </p>
+            <div class="cta-buttons">
+                <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+                <a href="#contact" class="btn btn-secondary">Me contacter</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences -->
+    <section id="competences" class="fade-in">
+        <h2 class="section-title">Compétences</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>💻 Langages & Frameworks</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>🐍 Outils & Librairies Python</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">Django REST</span>
+                    <span class="skill-tag">Flask</span>
+                    <span class="skill-tag">Requests</span>
+                    <span class="skill-tag">PyTest</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>🛠 Outils DevOps</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Git & GitHub</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">CI/CD</span>
+                    <span class="skill-tag">AWS (EC2, S3)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section id="projets" class="fade-in">
+        <h2 class="section-title">Mes projets</h2>
+        <div class="projects-grid">
+<div class="project-card">
+    <h3>CRM CLI – Gestion commerciale en ligne de commande</h3>
+    <p>
+        Application CLI en Python pour gérer des utilisateurs, des clients et des contrats.
+        Ce projet intègre une architecture claire (MVC), une authentification sécurisée par JWT,
+        et une gestion fine des rôles utilisateurs.
+    </p>
+    <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Click</span>
+        <span class="tech-tag">JWT</span>
+        <span class="tech-tag">PyTest</span>
+    </div>
+    <a href="https://github.com/Ju-l-e-s/crm_cli" target="_blank" class="btn btn-primary">Voir sur GitHub</a>
+</div>
+
+<div class="project-card">
+    <h3>Secure URL Analysis Tool</h3>
+    <p>
+        Outil conteneurisé permettant d’analyser des URL potentiellement malveillantes sans exposer son système.
+        Sécurité renforcée grâce à Docker, multiples couches d’isolation et détection avancée (redirections, phishing, etc.).
+    </p>
+    <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Sécurité</span>
+        <span class="tech-tag">Analyse Web</span>
+    </div>
+    <a href="https://github.com/Ju-l-e-s/secure-url-analysis" target="_blank" class="btn btn-primary">Voir sur GitHub</a>
+</div>
+
+<div class="project-card">
+    <h3>Social Network – Réseau d’entreprise</h3>
+    <p>
+        Application web de réseau social interne pour entreprise. Authentification, publication de posts,
+        gestion des utilisateurs et interactions. Full-stack JavaScript avec React côté client et Node.js côté serveur.
+    </p>
+    <div class="project-tech">
+        <span class="tech-tag">React</span>
+        <span class="tech-tag">Node.js</span>
+        <span class="tech-tag">MongoDB</span>
+        <span class="tech-tag">Express</span>
+    </div>
+    <a href="https://github.com/Ju-l-e-s/Social-Network" target="_blank" class="btn btn-primary">Voir sur GitHub</a>
+</div>
+
+<div class="project-card">
+    <h3>Scraping & APIs</h3>
+    <p>
+        Plusieurs projets de scraping web (livres, entreprises, etc.) enrichis par des APIs externes.
+        Extraction, structuration et automatisation de données pour analyses ou intégration.
+    </p>
+    <div class="project-tech">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">Scraping</span>
+        <span class="tech-tag">APIs</span>
+    </div>
+    <a href="https://github.com/Ju-l-e-s?tab=repositories&q=scrap&type=&language=" target="_blank" class="btn btn-primary">Voir mes projets</a>
+</div>
+        </div>
+    </section>
+
+    <!-- Expérience & Formation -->
+    <section id="experience" class="fade-in">
+        <h2 class="section-title">Expérience & Formation</h2>
+        <div class="timeline">
+            <!-- Item 1 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Développeur d'Application Python (Bac+3)</h3>
+                    <h4>OpenClassrooms – Bordeaux</h4>
+                    <p>Formation en alternance axée sur le développement Python et bonnes pratiques Full-Stack.</p>
+                </div>
+                <div class="timeline-date">2024 – 2025</div>
+            </div>
+            <!-- Item 2 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Développeur Web (Alternance)</h3>
+                    <h4>Lynxdrone – Canéjean</h4>
+                    <p>Conception d’outils internes, développement de dashboards en React et Python.</p>
+                </div>
+                <div class="timeline-date">2023</div>
+            </div>
+            <!-- Item 3 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Développeur Web (Stage)</h3>
+                    <h4>Odds – Bordeaux</h4>
+                    <p>Maintenance de sites WordPress, optimisation SEO et performance.</p>
+                </div>
+                <div class="timeline-date">2023</div>
+            </div>
+            <!-- Item 4 -->
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Développeur Web (Bac+2)</h3>
+                    <h4>OpenClassrooms – Bordeaux</h4>
+                    <p>Formation complète en développement web full-stack.</p>
+                </div>
+                <div class="timeline-date">2022</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="fade-in">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <a href="mailto:jules.laconfourque@icloud.com" class="contact-link">
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p>jules.laconfourque@icloud.com</p>
+                </div>
+            </a>
+            <a href="https://www.linkedin.com/in/jules-l-231377233/" target="_blank" rel="noopener" class="contact-link">
+                <div class="contact-item">
+                    <div class="contact-icon">🔗</div>
+                    <h3>LinkedIn</h3>
+                    <p>@jules</p>
+                </div>
+            </a>
+            <a href="https://github.com/Ju-l-e-s/" target="_blank" rel="noopener" class="contact-link">
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <h3>GitHub</h3>
+                    <p>@Ju-l-e-s</p>
+                </div>
+            </a>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Jules Laconfourque. Développeur Full-Stack Python.</p>
+</footer>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
