@@ -7,29 +7,30 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header class="main-header">
+        <div class="logo">JL</div>
+        <nav class="main-nav">
+            <a href="#hero">Accueil</a>
+            <a href="#projects">Projets</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
     <div class="container">
-        <header class="main-header">
-            <div class="logo">JL</div>
-            <nav class="main-nav">
-                <a href="#projects">Projets</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
-
-        <main>
-            <section class="hero">
-                <div class="hero-content">
-                    <span class="hero-kicker">Développeur Full-Stack</span>
-                    <h1 class="hero-title">Jules Laconfourque</h1>
-                    <p class="hero-tagline">Ce que j’aime avant tout, c’est résoudre des problèmes. Concevoir des applications utiles, fluides, bien pensées, c’est ce qui me motive.</p>
-                    <div class="hero-cta">
-                        <a href="#projects" class="cta-primary">Voir mes projets</a>
-                        <a href="#contact" class="cta-secondary">Me contacter</a>
-                    </div>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <span class="hero-kicker">Développeur Full-Stack</span>
+                <h1 class="hero-title">Jules Laconfourque</h1>
+                <p class="hero-tagline">Ce que j’aime avant tout, c’est résoudre des problèmes. Concevoir des applications utiles, fluides, bien pensées, c’est ce qui me motive.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="cta-primary">Voir mes projets</a>
+                    <a href="#contact" class="cta-secondary">Me contacter</a>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="projects" class="projects-section">
+        <section id="projects" class="projects-section">
+            <div class="projects-content">
                 <h2 class="section-title">Projets</h2>
                 <div class="projects-grid">
                     <div class="project-card">
@@ -91,9 +92,11 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="contact" class="contact-section">
+        <section id="contact" class="contact-section">
+            <div class="contact-content">
                 <h2 class="section-title">Contact</h2>
                 <p class="contact-text">N'hésitez pas à me contacter pour toute question ou opportunité.</p>
                 <div class="contact-links">
@@ -101,12 +104,11 @@
                     <a href="https://www.linkedin.com/in/jules-l-231377233/" target="_blank" class="contact-link">LinkedIn</a>
                     <a href="https://github.com/Ju-l-e-s/" target="_blank" class="contact-link">GitHub</a>
                 </div>
-            </section>
-        </main>
-
-        <footer class="main-footer">
-            <p>© 2025 Jules Laconfourque</p>
-        </footer>
+            </div>
+            <footer class="main-footer">
+                <p>© 2025 Jules Laconfourque</p>
+            </footer>
+        </section>
     </div>
     <script src="script.js"></script>
 </body>
