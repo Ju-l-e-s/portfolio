@@ -58,7 +58,7 @@ import { ProjectIllustration } from "../ui/ProjectIllustrations";
              )}
 
              <div className="relative h-1/3 w-full shrink-0 bg-gradient-to-br from-gray-800 to-black">
-               <ProjectIllustration name={project.illustration} />
+               <ProjectIllustration name={project.illustration as "crm" | "security" | "social" | "scraping"} />
                {project.tags[0] && (
                  <div className="absolute left-3 top-3">
                    <span className="rounded border border-white/10 bg-black/60 px-2 py-1 text-[10px] text-white backdrop-blur">

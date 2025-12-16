@@ -1,14 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Contact() {
-  const [, setIsSubmitting] = useState(false); // kept for potential future form
-
   return (
-        <section id="contact" className="relative w-full snap-start">
+    <section id="contact" className="relative w-full snap-start">
       <div className="text-center mb-10">
         <h2 className="text-accent-a text-xs font-mono uppercase tracking-widest mb-2">Contact</h2>
         <h3 className="text-3xl font-bold text-text sm:text-4xl">On discute ?</h3>
