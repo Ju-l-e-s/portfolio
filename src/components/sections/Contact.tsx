@@ -4,17 +4,15 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="relative w-full snap-start pb-8">
-      <div className="mx-auto flex w-full max-w-4xl flex-col items-center px-6 sm:px-8">
+    <section id="contact" className="relative w-full snap-start h-screen">
+      {/* Mobile */}
+      <div className="mx-auto flex h-full w-full max-w-4xl flex-col items-center justify-center px-6 sm:px-8 pb-8 md:hidden">
         <div className="text-center mb-10 w-full">
           <h2 className="text-accent-a text-xs font-mono uppercase tracking-widest mb-2">Contact</h2>
-          <h3 className="text-3xl font-bold text-text sm:text-4xl">On discute ?</h3>
-          <p className="mt-3 text-base text-muted max-w-md mx-auto hidden md:block">
-            Projet, opportunité ou discussion technique : contacte-moi.
-          </p>
+          <h3 className="text-3xl font-bold text-text">On discute ?</h3>
         </div>
 
-        <div className="flex flex-col gap-4 w-full max-w-md md:max-w-lg">
+        <div className="flex flex-col gap-4 w-full max-w-md">
           <a
             href="mailto:jules.laconfourque@icloud.com"
             className="group flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all active:scale-95"
@@ -71,6 +69,75 @@ export function Contact() {
         <div className="mt-8 text-[10px] text-muted text-center w-full">
           © 2026 Jules L. — Backend & DevOps
         </div>
+      </div>
+
+      {/* Desktop */}
+      <div className="hidden md:flex h-full w-full flex-col items-center justify-center relative overflow-hidden bg-bg">
+        <div className="z-10 flex flex-col items-center gap-8 w-full max-w-2xl px-6">
+          <h2 className="text-accent-a text-sm font-mono uppercase tracking-widest">Contact</h2>
+          <h3 className="text-4xl font-bold text-text">On discute ?</h3>
+          <p className="text-base text-muted text-center max-w-xl">
+            Projet, opportunité ou discussion technique : contacte-moi.
+          </p>
+
+          <div className="grid w-full gap-4">
+            <a
+              href="mailto:jules.laconfourque@icloud.com"
+              className="group flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all active:scale-95"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-accent-a/20 flex items-center justify-center text-accent-a">
+                  <Mail size={18} />
+                </div>
+                <div className="text-left">
+                  <span className="block text-sm font-bold text-text">M'écrire</span>
+                  <span className="block text-xs text-muted">Réponse rapide</span>
+                </div>
+              </div>
+              <span className="text-muted group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/jules-l-231377233/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between p-4 rounded-xl bg-[#0077b5]/10 border border-[#0077b5]/20 hover:bg-[#0077b5]/20 transition-all active:scale-95"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-[#0077b5]/20 flex items-center justify-center text-[#0077b5]">
+                  <Linkedin size={18} />
+                </div>
+                <div className="text-left">
+                  <span className="block text-sm font-bold text-text">LinkedIn</span>
+                  <span className="block text-xs text-muted">Mon profil pro</span>
+                </div>
+              </div>
+              <span className="text-muted group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+
+            <a
+              href="https://github.com/Ju-l-e-s/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all active:scale-95"
+            >
+              <div className="flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white">
+                  <Github size={18} />
+                </div>
+                <div className="text-left">
+                  <span className="block text-sm font-bold text-text">GitHub</span>
+                  <span className="block text-xs text-muted">Mon code</span>
+                </div>
+              </div>
+              <span className="text-muted group-hover:translate-x-1 transition-transform">→</span>
+            </a>
+          </div>
+        </div>
+
+        <footer className="absolute bottom-8 text-xs text-muted">
+          © 2026 Jules L. — Backend & DevOps
+        </footer>
       </div>
     </section>
   );
