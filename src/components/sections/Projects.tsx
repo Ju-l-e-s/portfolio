@@ -26,14 +26,14 @@ import { ProjectIllustration } from "../ui/ProjectIllustrations";
        id="projects"
        className="relative flex h-[100dvh] w-full snap-start scroll-mt-24 flex-col items-center justify-center overflow-hidden bg-bg"
      >
-       <div className="mb-4 w-full max-w-7xl px-6 text-center md:text-left">
+       <div className="mb-4 w-full max-w-7xl px-6 md:px-8 text-center md:text-left">
          <h2 className="text-xs font-mono uppercase tracking-widest text-accent-a">Portfolio</h2>
          <h3 className="text-2xl font-bold text-text">Projets</h3>
        </div>
 
        <div
          ref={scrollRef}
-         className="relative flex w-full max-w-7xl items-center gap-4 overflow-x-auto px-6 pb-10 snap-x snap-mandatory scrollbar-hide"
+         className="relative flex w-full max-w-7xl items-center gap-4 overflow-x-auto px-6 md:px-8 pb-10 snap-x snap-mandatory scrollbar-hide"
          aria-label="Liste horizontale de projets"
        >
          <div

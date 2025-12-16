@@ -29,6 +29,7 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Jules Laconfourque – Développeur",
   description: "Portfolio de Jules Laconfourque, développeur junior orienté DevOps.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0",
 };
 
 export default function RootLayout({
@@ -41,7 +42,7 @@ export default function RootLayout({
       lang="fr"
       className={`${inter.variable} ${jetBrainsMono.variable} ${spaceGrotesk.variable} scroll-smooth snap-y snap-mandatory`}
     >
-      <body className={`font-sans bg-base text-text`}>
+      <body className="font-sans bg-base text-text overflow-x-hidden">
         <ReducedMotionWrapper>
           <Background />
           <Header />

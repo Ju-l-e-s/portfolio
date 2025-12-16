@@ -68,10 +68,46 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-accent-a text-bg font-bold text-lg">
-            J
-          </div>
+        <Link href="/" className="flex items-center gap-3">
+          <svg
+            width="40"
+            height="40"
+            viewBox="0 0 120 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8 sm:h-10 sm:w-10"
+          >
+            <path
+              d="M35 30 L15 50 L35 70"
+              stroke="currentColor"
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-accent-a"
+            />
+            <path
+              d="M50 25 V65 C50 75 45 80 35 80"
+              stroke="currentColor"
+              strokeWidth="8"
+              strokeLinecap="round"
+              className="text-text"
+            />
+            <path
+              d="M65 25 V75 H80"
+              stroke="currentColor"
+              strokeWidth="8"
+              strokeLinecap="round"
+              className="text-accent-a"
+            />
+            <path
+              d="M85 30 L105 50 L85 70"
+              stroke="currentColor"
+              strokeWidth="8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-accent-a"
+            />
+          </svg>
           <span className="font-semibold text-lg">Jules L.</span>
         </Link>
 

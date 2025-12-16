@@ -20,7 +20,7 @@ export function Process() {
       id="process"
       className="relative hidden w-full scroll-mt-24 md:flex md:h-[100dvh] md:snap-start md:scroll-mt-0 md:flex-col md:items-center md:justify-center md:px-4 md:py-10"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-7xl w-full px-6 md:px-8">
         <div className="mb-8 max-w-2xl text-left sm:mb-10">
         <span className="font-mono text-accent-a text-sm tracking-widest uppercase">03. Workflow</span>
         <h2 className="mt-2 text-2xl font-bold text-text sm:text-4xl">Un processus transparent</h2>

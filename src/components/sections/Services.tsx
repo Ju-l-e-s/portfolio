@@ -58,7 +58,7 @@ export function Services() {
 
     return (
     <section id="services" className="hidden md:flex relative w-full scroll-mt-24 md:h-[100dvh] md:snap-start md:scroll-mt-0 md:flex-col md:items-center md:justify-center md:px-4 md:py-12 lg:py-16">
-      <div className="mx-auto w-full max-w-6xl border-b border-white/10 pb-6 sm:pb-8">
+      <div className="mx-auto w-full max-w-6xl px-6 md:px-8 border-b border-white/10 pb-6 sm:pb-8">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between md:gap-6">
           <div className="flex items-center gap-3 text-sm font-mono text-muted">
             <span className="text-accent-a">02.</span>

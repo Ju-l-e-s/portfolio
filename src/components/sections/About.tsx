@@ -24,7 +24,7 @@ export function About() {
       id="about"
       className="relative w-full h-[100dvh] overflow-hidden snap-start scroll-mt-24 flex flex-col items-center justify-center bg-bg"
     >
-      <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-10 px-6 sm:px-8">
+      <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-10 px-6 md:px-8">
         {/* Mobile layout */}
         <div className="md:hidden flex h-full flex-col justify-center gap-6">
           <div className="space-y-3 text-left max-w-md">
