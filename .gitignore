@@ -1,1 +1,30 @@
+# Dépendances
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Builds Next.js
+.next/
+out/
+dist/
+.vercel/
+
+# Config temporaire
+*.log
+*.tmp
+*.swp
+
+# Environnements
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Système
+.DS_Store
+Thumbs.db
+# IDE
 .idea/
+.vscode/
