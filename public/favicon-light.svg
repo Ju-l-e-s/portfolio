@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Light browser theme: use a dark background for contrast -->
+  <rect width="100" height="100" rx="20" fill="#111111" />
+
+  <path
+    d="M35 20 V70 C35 82 28 88 15 88"
+    stroke="#FFFFFF"
+    stroke-width="14"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M60 20 V88 H85"
+    stroke="#FF5C7A"
+    stroke-width="14"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
+

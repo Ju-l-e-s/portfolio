@@ -31,6 +31,20 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Jules Laconfourque – Développeur",
   description: "Portfolio de Jules Laconfourque, développeur junior orienté DevOps.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon-light.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon-dark.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
 };
 
 export const viewport: Viewport = {
@@ -58,9 +72,9 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${jetBrainsMono.variable} ${spaceGrotesk.variable} scroll-smooth snap-y snap-mandatory`}
+      className={`${inter.variable} ${jetBrainsMono.variable} ${spaceGrotesk.variable} scroll-smooth overflow-x-hidden`}
     >
-      <body className="font-sans bg-base text-text overflow-x-hidden">
+      <body className="font-sans bg-base text-text overflow-x-hidden snap-y snap-mandatory">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ReducedMotionWrapper>
             <Background />

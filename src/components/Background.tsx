@@ -22,7 +22,7 @@ export function Background() {
       };
 
   return (
-    <div className="fixed inset-0 -z-50 h-full w-full bg-bg">
+    <div className="fixed inset-0 -z-50 h-full w-full overflow-hidden bg-bg">
       {/* Animated Radial Gradients */}
       <motion.div className="absolute inset-0 opacity-5" {...animationProps}>
         <div className="absolute bottom-0 left-[-20%] right-0 top-[-10%] h-[100vh] w-[100vw] bg-[radial-gradient(circle_farthest-side,rgba(var(--accent-a),0.2),rgba(255,255,255,0))]" />
