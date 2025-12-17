@@ -29,7 +29,7 @@
     "label": "À propos",
     "title": "Du code au cloud",
     "hook": "Je ne veux pas juste que ça marche. Je veux que ça tourne en prod, stable et mesurable.",
-    "description": "Ce qui m’intéresse, ce n’est pas seulement “que ça marche sur ma machine”, c’est que ça tourne en production, de façon stable, mesurable et résiliente. Je conçois des APIs et l’infrastructure légère autour : conteneurs, CI/CD, environnements reproductibles, configuration propre, et une observabilité minimale (logs/metrics/alertes). Le résultat : moins de friction, plus de confiance à chaque release.",
+    "description": "Ce qui m’intéresse, ce n’est pas seulement “que ça marche sur ma machine”, c’est que ça tourne en production, de façon stable, mesurable et résiliente. Je conçois des APIs et l’infrastructure légère autour : conteneurs, CI/CD, tests automatisés, environnements reproductibles, configuration propre, et une observabilité minimale (logs/metrics/alertes). Le résultat : moins de friction, plus de confiance à chaque release.",
     "cards": {
       "focus": {
         "title": "Focus",
@@ -37,7 +37,7 @@
       },
       "deliverable": {
         "title": "Livrable",
-        "desc": "CI/CD + déploiement, environnements (dev/staging/prod), tests/lint/checks essentiels."
+        "desc": "CI/CD + déploiement, environnements (dev/staging/prod), tests."
       },
       "method": {
         "title": "Méthode",

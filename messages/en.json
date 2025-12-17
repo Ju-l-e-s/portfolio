@@ -29,7 +29,7 @@
     "label": "About",
     "title": "From Code to Cloud",
     "hook": "I’m done with 'it works on my machine'. I care about what runs in production—stable, measurable, and scalable.",
-    "description": "Building code is one thing; shipping it is another. My focus isn't just writing logic, but ensuring it runs in the cloud with zero downtime. I design APIs and the ecosystem around them: containers, CI/CD pipelines, reproducible environments, and observability baked in from day one. The result? Less friction, more confidence, faster shipping.",
+    "description": "Building code is one thing; shipping it is another. My focus isn't just writing logic, but ensuring it runs in the cloud with zero downtime. I design APIs and the ecosystem around them: containers, CI/CD pipelines, automated tests, reproducible environments, and observability baked in from day one. The result? Less friction, more confidence, faster shipping.",
     "cards": {
       "focus": {
         "title": "Core Focus",
