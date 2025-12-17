@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { projects } from "@/lib/data";
+import { projects } from "@/content/portfolio";
 import { ChevronRight } from "lucide-react";
 import { ProjectIllustration } from "../ui/ProjectIllustrations";
 import { useTranslations } from "next-intl";

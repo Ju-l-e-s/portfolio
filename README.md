@@ -16,76 +16,28 @@ L'architecture de ce projet est basée sur Next.js avec le App Router, TypeScrip
 
 ### 2. Structure des Dossiers
 
-La structure des dossiers est organisée pour séparer clairement les préoccupations (`separation of concerns`). Elle inclut la gestion de l'internationalisation (i18n) pour de futures traductions.
+Voici un aperçu des dossiers et fichiers les plus importants pour comprendre l'organisation du projet :
 
 ```
 /
-├── public/
-│   └── images/
-│       └── profile.png
+├── public/             # Contient les fichiers statiques (ex: images).
 ├── src/
-│   ├── app/
-│   │   ├── [locale]/
-│   │   │   ├── layout.tsx
-│   │   │   └── page.tsx
-│   │   └── components/
-│   │
-│   ├── components/
-│   │   ├── sections/
-│   │   │   ├── About.tsx
-│   │   │   ├── Contact.tsx
-│   │   │   ├── Hero.tsx
-│   │   │   ├── Process.tsx
-│   │   │   ├── Projects.tsx
-│   │   │   └── Services.tsx
-│   │   └── ui/
-│   │       ├── CustomCursor.tsx
-│   │       ├── FloatingLabelInput.tsx
-│   │       ├── HeroTitleReveal.tsx
-│   │       ├── InteractiveTerminal.tsx
-│   │       ├── ProfileCard.tsx
-│   │       ├── ProjectCard.tsx
-│   │       ├── ProjectIllustrations.tsx
-│   │       ├── ScrollDown.tsx
-│   │       ├── ScrollToTop.tsx
-│   │       └── TerminalStack.tsx
-│   │
-│   ├── data/
-│   │   └── index.ts
-│   │
-│   ├── hooks/
-│   │   ├── use-mouse-position.ts
-│   │   └── use-reduced-motion.ts
-│   │
-│   ├── lib/
-│   │   ├── data.ts
-│   │   ├── motion.ts
-│   │   └── utils.ts
-│   │
-│   ├── styles/
-│   │   ├── design-tokens.css
-│   │   └── globals.css
-│   │
-│   ├── i18n.ts
-│   └── middleware.ts
+│   ├── app/            # Pages et layouts principaux (Next.js App Router).
+│   ├── components/     # Composants React, divisés en `sections` et `ui`.
+│   ├── content/        # Données et contenu du site (projets, textes, etc.).
+│   └── styles/         # Fichiers de style globaux.
 │
-├── .gitignore
-├── next.config.mjs
-├── package.json
-├── tailwind.config.ts
-└── tsconfig.json
+├── next.config.mjs     # Fichier de configuration principal de Next.js.
+├── tailwind.config.ts  # Fichier de configuration pour Tailwind CSS.
+└── package.json        # Scripts et dépendances du projet.
 ```
 
-### 3. Internationalisation (i18n)
+### 3. Gestion des Données
 
-Le projet est structuré pour supporter plusieurs langues.
-*   **`src/app/[locale]`**: Ce dossier utilise une route dynamique de Next.js pour capturer la langue (ex: `/fr` ou `/en`).
-*   **`src/i18n.ts`**: Fichier de configuration pour `next-intl`, gérant les langues supportées.
-*   **`src/middleware.ts`**: Le middleware intercepte les requêtes pour gérer les redirections et déterminer la langue à utiliser en fonction du chemin d'accès ou des préférences du navigateur.
+Le contenu statique du site (textes, informations des projets, liens de navigation) est centralisé dans :
 
-### 4. Gestion des Données
-
-Le contenu statique du site (textes, informations des projets, liens de navigation) est centralisé dans le fichier `src/lib/data.ts`.
+* `src/config/site.ts` pour la configuration du site (navigation, liens).
+* `src/content/portfolio.ts` pour les données métiers (projets, étapes de workflow).
 
 *   **Avantage** : Cela permet de modifier le contenu du site sans avoir à toucher à la logique ou à la structure des composants React. Ajouter un projet ou modifier une description se fait en éditant un simple objet JavaScript.
 

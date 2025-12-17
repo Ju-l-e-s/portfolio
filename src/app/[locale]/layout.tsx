@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { setRequestLocale } from "next-intl/server";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import "@/styles/globals.css";
 import { Background } from "@/components/Background";
 import { Header } from "@/components/Header";
@@ -53,9 +53,7 @@ export default async function LocaleLayout({
 }>) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const messages =
-    (await import(`../../../messages/${locale}.json`).catch(() => null))?.default ??
-    (await import("../../../messages/fr.json")).default;
+  const messages = await getMessages({ locale });
 
   return (
     <html

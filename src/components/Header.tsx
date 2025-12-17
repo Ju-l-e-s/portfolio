@@ -2,16 +2,17 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import { navLinks } from "@/lib/data";
+import { navLinks } from "@/config/site";
 import { clsx } from "clsx";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useMotionPreference } from "./ReducedMotionWrapper";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export function Header() {
   const t = useTranslations("nav");
+  const locale = useLocale();
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -71,7 +72,7 @@ export function Header() {
       )}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-        <Link href="/" className="flex items-center gap-3">
+        <Link href="/" locale={locale} className="flex items-center gap-3">
           <svg
             width="40"
             height="40"
@@ -171,7 +172,12 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-[100] flex h-[100dvh] w-screen flex-col bg-bg px-6 py-4 md:hidden">
           <div className="mb-12 flex w-full items-center justify-between">
-            <Link href="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link
+              href="/"
+              locale={locale}
+              className="flex items-center gap-3"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
               <svg
                 width="40"
                 height="40"
