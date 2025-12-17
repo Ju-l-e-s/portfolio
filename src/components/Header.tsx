@@ -15,41 +15,20 @@ function LogoMark() {
     <svg
       width="40"
       height="40"
-      viewBox="0 0 120 100"
+      viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className="h-8 w-8 sm:h-10 sm:w-10"
     >
+      <rect width="100" height="100" rx="20" fill="none" />
       <path
-        d="M35 30 L15 50 L35 70"
-        stroke="currentColor"
-        strokeWidth="8"
+        d="M35 20 V70 C35 82 28 88 15 88"
+        stroke="#FFFFFF"
+        strokeWidth="14"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="text-accent-a"
       />
-      <path
-        d="M50 25 V65 C50 75 45 80 35 80"
-        stroke="currentColor"
-        strokeWidth="8"
-        strokeLinecap="round"
-        className="text-text"
-      />
-      <path
-        d="M65 25 V75 H80"
-        stroke="currentColor"
-        strokeWidth="8"
-        strokeLinecap="round"
-        className="text-accent-a"
-      />
-      <path
-        d="M85 30 L105 50 L85 70"
-        stroke="currentColor"
-        strokeWidth="8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-accent-a"
-      />
+      <path d="M60 20 V88 H85" stroke="#FF5C7A" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
@@ -120,7 +99,6 @@ export function Header() {
         <div className="z-50">
           <Link href="/" locale={locale} className="flex items-center gap-3">
             <LogoMark />
-            <span className="font-semibold text-lg">Jules L.</span>
           </Link>
         </div>
 
@@ -182,7 +160,7 @@ export function Header() {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] flex h-[100dvh] w-screen flex-col bg-bg md:hidden">
+        <div className="fixed inset-0 z-[100] flex h-[100dvh] w-full flex-col bg-bg md:hidden">
           {/* HEADER DU MENU : copie exacte des dimensions du header principal */}
           <div className="flex h-20 w-full items-center justify-between px-6 border-b border-white/5">
             <div>
@@ -193,7 +171,6 @@ export function Header() {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <LogoMark />
-                <span className="font-semibold text-lg">Jules L.</span>
               </Link>
             </div>
             <div className="flex items-center gap-4">
