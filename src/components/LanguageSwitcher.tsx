@@ -1,7 +1,5 @@
 "use client";
 
-"use client";
-
 import {useLocale} from "next-intl";
 import {createNavigation} from "next-intl/navigation";
 import {clsx} from "clsx";
@@ -29,6 +27,7 @@ export function LanguageSwitcher() {
         type="button"
         role="switch"
         aria-checked={isEnglish}
+        aria-label={isEnglish ? "Switch language to French" : "Switch language to English"}
         onClick={toggleLocale}
         className={clsx(
           "relative inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 transition-colors duration-200 ease-in-out",

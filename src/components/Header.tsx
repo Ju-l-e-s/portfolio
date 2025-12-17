@@ -103,8 +103,14 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
         {/* ZONE GAUCHE : Logo */}
         <div className="z-50">
-          <Link href="/" locale={locale} className="flex items-center gap-3">
+          <Link
+            href="/"
+            locale={locale}
+            className="flex items-center gap-3"
+            aria-label={locale === "fr" ? "Accueil" : "Home"}
+          >
             <LogoMark />
+            <span className="sr-only">{locale === "fr" ? "Accueil" : "Home"}</span>
           </Link>
         </div>
 
@@ -174,9 +180,11 @@ export function Header() {
                 href="/"
                 locale={locale}
                 className="flex items-center gap-3"
+                aria-label={locale === "fr" ? "Accueil" : "Home"}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <LogoMark />
+                <span className="sr-only">{locale === "fr" ? "Accueil" : "Home"}</span>
               </Link>
             </div>
             <div className="flex items-center gap-4">
