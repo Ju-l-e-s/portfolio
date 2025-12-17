@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "title": "Jules Laconfourque – Backend & DevOps Engineer",
+    "description": "Backend Engineer with a DevOps mindset. Specializing in Python, Node.js, AWS, Docker, and CI/CD pipelines."
+  },
+  "nav": {
+    "intro": "Intro",
+    "story": "About",
+    "process": "Workflow",
+    "services": "Services",
+    "projects": "Work",
+    "contact": "Contact",
+    "cta": "Get in Touch"
+  },
+  "hero": {
+    "title": "Code to Cloud.\nZero Friction.",
+    "subtitle": "Backend Developer with a DevOps mindset. I architect the invisible infrastructure that makes your apps resilient and your deployments boringly predictable.",
+    "role": "Backend & DevOps Engineer",
+    "cta_projects": "See my work",
+    "cta_contact": "Let's talk",
+    "terminal": {
+      "line1": "CLOUD NATIVE: AWS · Docker",
+      "line2": "DELIVERY: CI/CD · Testing · Observability",
+      "line3": "BACKEND: Node.js · Python/FastAPI",
+      "help": "Welcome! Type 'help' to see available commands."
+    }
+  },
+  "about": {
+    "label": "About",
+    "title": "From Code to Cloud",
+    "hook": "I’m done with 'it works on my machine'. I care about what runs in production—stable, measurable, and scalable.",
+    "description": "Building code is one thing; shipping it is another. My focus isn't just writing logic, but ensuring it runs in the cloud with zero downtime. I design APIs and the ecosystem around them: containers, CI/CD pipelines, reproducible environments, and observability baked in from day one. The result? Less friction, more confidence, faster shipping.",
+    "cards": {
+      "focus": {
+        "title": "Core Focus",
+        "desc": "APIs · Cloud Delivery · DevOps"
+      },
+      "deliverable": {
+        "title": "Deliverables",
+        "desc": "CI/CD pipelines, environments (dev/staging/prod), automated testing & linting gates."
+      },
+      "method": {
+        "title": "Methodology",
+        "desc": "Short feedback loops, infrastructure as code, and observability by default."
+      }
+    }
+  },
+  "services": {
+    "id": "02.",
+    "label": "Services",
+    "title": "Premium Engineering",
+    "subtitle": "Scope of Work",
+    "description": "I lay the technical groundwork that empowers teams to ship faster without breaking things. This means versioned infrastructure, automated deployment pipelines, and full visibility into production systems.",
+    "guideline": "North Star: Rigor, Automation, Metrics.",
+    "list": {
+      "cicd": {
+        "tech": "GitHub Actions · Deployments",
+        "title": "CI/CD Pipelines"
+      },
+      "iac": {
+        "tech": "Terraform · AWS · Environments",
+        "title": "Infrastructure as Code"
+      },
+      "backend": {
+        "tech": "Node.js · Python · APIs",
+        "title": "Backend & API Design"
+      },
+      "dx": {
+        "tech": "Tooling · Previews",
+        "title": "Developer Experience (DX)"
+      },
+      "security": {
+        "tech": "Scans · Secrets Management",
+        "title": "Security Essentials"
+      },
+      "observability": {
+        "tech": "Logs · Metrics · Traces",
+        "title": "Observability Stack"
+      }
+    }
+  },
+  "workflow": {
+    "id": "03.",
+    "label": "Workflow",
+    "title": "A Transparent Process",
+    "description": "No black boxes. Just a battle-tested methodology to deliver high-quality software, sprint after sprint.",
+    "steps": {
+      "scoping": {
+        "step": "01",
+        "title": "Discovery",
+        "desc": "Goals, constraints, success criteria, and defining the 'Definition of Done'.",
+        "tag": "Specs & KPIs"
+      },
+      "planning": {
+        "step": "02",
+        "title": "Blueprint",
+        "desc": "Simple architecture, tangible milestones, focusing on visible results first.",
+        "tag": "Architecture"
+      },
+      "build": {
+        "step": "03",
+        "title": "Build",
+        "desc": "Clean code, rapid iterations, and fully reproducible environments.",
+        "tag": "Dev & Tests"
+      },
+      "delivery": {
+        "step": "04",
+        "title": "Shipping",
+        "desc": "CI/CD, critical testing suites, documentation, and smooth handover.",
+        "tag": "CI/CD & Docs"
+      }
+    }
+  },
+  "projects": {
+    "label": "Portfolio",
+    "title": "Selected Work",
+    "swipe_hint": "Swipe",
+    "view_all": "View all projects",
+    "list": {
+      "crm": {
+        "tag": "Python",
+        "title": "CRM CLI – Business Ops",
+        "description": "A Python CLI tool for managing users, clients, and contracts. Features a strict MVC architecture, secure JWT authentication, and granular role-based access control (RBAC)."
+      },
+      "secure_url": {
+        "tag": "Python",
+        "title": "Secure URL Analyzer",
+        "description": "Containerized sandbox for analyzing potentially malicious URLs without risk to the host. Hardened security using Docker isolation layers and advanced phishing detection patterns."
+      },
+      "social": {
+        "tag": "React",
+        "title": "Enterprise Social Network",
+        "description": "Internal social platform for corporate environments. Handles auth, real-time posting, and user interactions. Built with a React frontend and a robust Node.js backend."
+      },
+      "scraping": {
+        "tag": "Python",
+        "title": "Data Pipelines & Scraping",
+        "description": "Multiple web scraping engines (books, corporate data) enriched via external APIs. Focus on automated data extraction, cleaning, and structuring for downstream integration."
+      }
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "Let's Talk",
+    "description": "Projects, opportunities, or just nerding out on tech—I'm all ears.",
+    "email": {
+      "title": "Email Me",
+      "desc": "Quickest response"
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "desc": "Professional profile"
+    },
+    "github": {
+      "title": "GitHub",
+      "desc": "Check my code"
+    },
+    "footer": "© 2026 Jules L. — Backend & DevOps"
+  }
+}

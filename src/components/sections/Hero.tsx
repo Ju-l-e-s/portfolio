@@ -6,8 +6,10 @@ import Image from "next/image";
 import { HeroTitleReveal } from "../ui/HeroTitleReveal";
 import { InteractiveTerminal } from "../ui/InteractiveTerminal";
 import { ProfileCard } from "../ui/ProfileCard";
+import { useTranslations } from "next-intl";
 
 export function Hero() {
+  const t = useTranslations("hero");
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -38,7 +40,7 @@ export function Hero() {
             href="#projects"
             className="group relative inline-flex w-full items-center justify-center gap-3 rounded-full bg-accent-a px-6 py-3 text-base font-semibold text-bg transition duration-300 hover:scale-105"
           >
-            Voir mes projets
+            {t("cta_projects")}
           </Link>
         </div>
       </div>
@@ -66,7 +68,7 @@ export function Hero() {
                 </div>
                 <div>
                   <h2 className="text-xl font-bold text-text">Jules Laconfourque</h2>
-                  <p className="text-sm text-muted">Développeur Backend & DevOps</p>
+                  <p className="text-sm text-muted">{t("role")}</p>
                   <a href="https://github.com/Ju-l-e-s/" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-accent-a flex items-center gap-1 mt-2">
                     <span>GITHUB</span> <span className="text-lg transition-transform group-hover:translate-x-1">↗</span>
                   </a>
@@ -74,15 +76,14 @@ export function Hero() {
               </div>
 
               <HeroTitleReveal
-                lines={["Du Code", "au Cloud,", "sans friction."]}
+                lines={t("title").split("\n")}
                 className="text-left text-[clamp(36px,8vw,68px)] font-bold leading-[0.95] tracking-tight text-text"
               />
               <motion.p
                 variants={itemVariants}
                 className="max-w-[52ch] break-words text-base leading-relaxed text-muted sm:text-lg"
               >
-                Développeur Backend orienté DevOps. Je construis l&apos;infrastructure invisible qui rend vos applications
-                résilientes et vos déploiements prévisibles.
+                {t("subtitle")}
               </motion.p>
               <motion.div
                 variants={itemVariants}
@@ -92,13 +93,13 @@ export function Hero() {
                   href="#projects"
                   className="group relative inline-flex w-full items-center justify-center gap-3 rounded-full bg-accent-a px-6 py-3 text-base font-semibold text-bg transition duration-300 hover:scale-105 sm:w-auto"
                 >
-                  Voir mes projets
+                  {t("cta_projects")}
                 </Link>
                 <Link
                   href="#contact"
                   className="hidden sm:inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3 text-base font-semibold text-muted transition duration-300 hover:border-white/40 hover:text-text"
                 >
-                  Me contacter
+                  {t("cta_contact")}
                 </Link>
               </motion.div>
             </div>

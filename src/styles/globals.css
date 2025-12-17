@@ -81,3 +81,12 @@ body::after {
   border-radius: 16px;
   opacity: 0.7;
 }
+
+/* Custom utility to hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

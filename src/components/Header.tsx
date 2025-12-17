@@ -5,10 +5,13 @@ import Link from "next/link";
 import { navLinks } from "@/lib/data";
 import { clsx } from "clsx";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useMotionPreference } from "./ReducedMotionWrapper";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useTranslations } from "next-intl";
 
 export function Header() {
+  const t = useTranslations("nav");
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -142,17 +145,18 @@ export function Header() {
                   </>
                 )
               )}
-              <span className="relative z-10">{link.name}</span>
+              <span className="relative z-10">{t(link.key)}</span>
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-3">
+          <LanguageSwitcher />
           <a
             href="#contact"
             className="hidden md:inline-flex rounded-md bg-accent-a px-3 py-2 text-xs font-semibold text-bg transition-transform hover:scale-105 sm:px-4 sm:text-sm"
           >
-            Me Contacter
+            {t("cta")}
           </a>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -164,51 +168,92 @@ export function Header() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="md:hidden fixed inset-0 z-40 bg-bg/95 backdrop-blur-xl"
-          >
-            <div className="mx-auto max-w-7xl px-6 py-4 flex justify-end">
-                <button
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="rounded-md p-2 text-muted transition-colors hover:text-text"
-                    aria-label="Close mobile menu"
-                >
-                    <X size={24} />
-                </button>
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-[100] flex h-[100dvh] w-screen flex-col bg-bg px-6 py-4 md:hidden">
+          <div className="mb-12 flex w-full items-center justify-between">
+            <Link href="/" className="flex items-center gap-3" onClick={() => setIsMobileMenuOpen(false)}>
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 120 100"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-8 w-8 sm:h-10 sm:w-10"
+              >
+                <path
+                  d="M35 30 L15 50 L35 70"
+                  stroke="currentColor"
+                  strokeWidth="8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-accent-a"
+                />
+                <path
+                  d="M50 25 V65 C50 75 45 80 35 80"
+                  stroke="currentColor"
+                  strokeWidth="8"
+                  strokeLinecap="round"
+                  className="text-text"
+                />
+                <path
+                  d="M65 25 V75 H80"
+                  stroke="currentColor"
+                  strokeWidth="8"
+                  strokeLinecap="round"
+                  className="text-accent-a"
+                />
+                <path
+                  d="M85 30 L105 50 L85 70"
+                  stroke="currentColor"
+                  strokeWidth="8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-accent-a"
+                />
+              </svg>
+              <span className="font-semibold text-lg">Jules L.</span>
+            </Link>
+            <div className="flex items-center gap-3">
+              <LanguageSwitcher />
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="p-2 text-muted transition-colors hover:text-text"
+                aria-label="Fermer le menu"
+              >
+                <X size={28} />
+              </button>
             </div>
-            <nav className="flex flex-col items-center justify-center h-full -mt-16 space-y-8">
-              {visibleLinks.map((link) => (
+          </div>
+
+          <nav className="flex flex-1 flex-col items-center justify-center gap-8 text-2xl font-bold">
+            {visibleLinks
+              .filter((link) => link.href !== "#contact")
+              .map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={clsx(
-                    "text-2xl font-semibold transition-colors hover:text-text",
-                    activeLink === link.href ? "text-accent-a" : "text-muted"
-                  )}
+                  className="transition-colors hover:text-accent-a"
                   onClick={() => {
                     setActiveLink(link.href);
                     setIsMobileMenuOpen(false);
                   }}
                 >
-                  {link.name}
+                  {t(link.key)}
                 </Link>
               ))}
-               <a
-                href="#contact"
-                className="rounded-md bg-accent-a px-8 py-4 text-lg font-semibold text-bg transition-transform hover:scale-105"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Me Contacter
-              </a>
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </nav>
+
+          <div className="mb-8 w-full">
+            <a
+              href="#contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="flex w-full items-center justify-center rounded-xl bg-accent-a py-4 font-bold text-bg transition hover:scale-[1.01]"
+            >
+              {t("cta")}
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

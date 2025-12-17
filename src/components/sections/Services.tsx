@@ -2,41 +2,19 @@
 
 import { motion } from "framer-motion";
 import { useMotionPreference } from "@/components/ReducedMotionWrapper";
+import { useTranslations } from "next-intl";
 
 const expertiseItems = [
-  {
-    title: "Pipelines CI/CD",
-    meta: "GitHub Actions · déploiements",
-    span: "md:col-span-7",
-  },
-  {
-    title: "Infrastructure as Code",
-    meta: "Terraform · AWS · environnements",
-    span: "md:col-span-5",
-  },
-  {
-    title: "Backend & APIs",
-    meta: "Node.js · Python · APIs",
-    span: "md:col-span-5",
-  },
-  {
-    title: "DX & Tooling",
-    meta: "Outillage · préviews",
-    span: "md:col-span-7",
-  },
-  {
-    title: "Sécurité (bases)",
-    meta: "Scans · secrets",
-    span: "md:col-span-6",
-  },
-  {
-    title: "Observability (bases)",
-    meta: "Logs · metrics · traces",
-    span: "md:col-span-6",
-  },
+  { key: "cicd", span: "md:col-span-7" },
+  { key: "iac", span: "md:col-span-5" },
+  { key: "backend", span: "md:col-span-5" },
+  { key: "dx", span: "md:col-span-7" },
+  { key: "security", span: "md:col-span-6" },
+  { key: "observability", span: "md:col-span-6" },
 ];
 
 export function Services() {
+  const t = useTranslations("services");
   const prefersReducedMotion = useMotionPreference();
 
   const containerVariants = {
@@ -56,31 +34,30 @@ export function Services() {
     show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-    return (
+  return (
     <section id="services" className="hidden md:flex relative w-full scroll-mt-24 md:h-[100dvh] md:snap-start md:scroll-mt-0 md:flex-col md:items-center md:justify-center md:px-4 md:py-12 lg:py-16">
       <div className="mx-auto w-full max-w-6xl px-6 md:px-8 border-b border-white/10 pb-6 sm:pb-8">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between md:gap-6">
           <div className="flex items-center gap-3 text-sm font-mono text-muted">
-            <span className="text-accent-a">02.</span>
-            <span className="uppercase tracking-[0.2em]">Services</span>
+            <span className="text-accent-a">{t("id")}</span>
+            <span className="uppercase tracking-[0.2em]">{t("label")}</span>
           </div>
           <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-mono uppercase tracking-[0.14em] text-muted sm:px-4 sm:text-xs">
-            Engineering Premium
+            {t("title")}
           </span>
         </div>
 
         <div className="mt-6 flex flex-col gap-4 lg:mt-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-3 sm:space-y-4">
             <h2 className="text-2xl font-bold tracking-tight text-text sm:text-4xl">
-              Domaines d'exécution
+              {t("subtitle")}
             </h2>
             <p className="text-base leading-relaxed text-muted sm:text-lg">
-              Je construis des bases techniques qui aident une équipe à livrer vite sans perdre en fiabilité :
-              infrastructure versionnée, pipelines de déploiement, automatisation et visibilité sur ce qui se passe en prod.
+              {t("description")}
             </p>
           </div>
           <div className="text-sm font-mono uppercase tracking-[0.14em] text-muted">
-            Ligne directrice : rigueur, automation, mesure.
+            {t("guideline")}
           </div>
         </div>
 
@@ -99,9 +76,11 @@ export function Services() {
             >
               <div className="flex items-center justify-between text-xs font-mono uppercase tracking-[0.14em] text-muted">
                 <span className="text-accent-a">{`0${index + 1}.`}</span>
-                <span className="min-w-0 text-right">{item.meta}</span>
+                <span className="min-w-0 text-right">{t(`list.${item.key}.tech`)}</span>
               </div>
-              <h3 className="mt-4 text-lg font-bold tracking-tight text-text sm:text-xl md:text-2xl">{item.title}</h3>
+              <h3 className="mt-4 text-lg font-bold tracking-tight text-text sm:text-xl md:text-2xl">
+                {t(`list.${item.key}.title`)}
+              </h3>
             </motion.div>
           ))}
         </motion.div>

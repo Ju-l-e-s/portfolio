@@ -1,15 +1,17 @@
 "use client";
 
 import { Github, Linkedin, Mail } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Contact() {
+  const t = useTranslations("contact");
   return (
     <section id="contact" className="relative w-full snap-start h-screen">
       {/* Mobile */}
       <div className="mx-auto flex h-full w-full max-w-4xl flex-col items-center justify-center px-6 sm:px-8 pb-8 md:hidden">
         <div className="text-center mb-10 w-full">
-          <h2 className="text-accent-a text-xs font-mono uppercase tracking-widest mb-2">Contact</h2>
-          <h3 className="text-3xl font-bold text-text">On discute ?</h3>
+          <h2 className="text-accent-a text-xs font-mono uppercase tracking-widest mb-2">{t("label")}</h2>
+          <h3 className="text-3xl font-bold text-text">{t("title")}</h3>
         </div>
 
         <div className="flex flex-col gap-4 w-full max-w-md">
@@ -22,8 +24,8 @@ export function Contact() {
                 <Mail size={18} />
               </div>
               <div className="text-left">
-                <span className="block text-sm font-bold text-text">M'écrire</span>
-                <span className="block text-xs text-muted">Réponse rapide</span>
+                <span className="block text-sm font-bold text-text">{t("email.title")}</span>
+                <span className="block text-xs text-muted">{t("email.desc")}</span>
               </div>
             </div>
             <span className="text-muted group-hover:translate-x-1 transition-transform">→</span>
@@ -40,8 +42,8 @@ export function Contact() {
                 <Linkedin size={18} />
               </div>
               <div className="text-left">
-                <span className="block text-sm font-bold text-text">LinkedIn</span>
-                <span className="block text-xs text-muted">Mon profil pro</span>
+                <span className="block text-sm font-bold text-text">{t("linkedin.title")}</span>
+                <span className="block text-xs text-muted">{t("linkedin.desc")}</span>
               </div>
             </div>
             <span className="text-muted group-hover:translate-x-1 transition-transform">→</span>
@@ -58,8 +60,8 @@ export function Contact() {
                 <Github size={18} />
               </div>
               <div className="text-left">
-                <span className="block text-sm font-bold text-text">GitHub</span>
-                <span className="block text-xs text-muted">Mon code</span>
+                <span className="block text-sm font-bold text-text">{t("github.title")}</span>
+                <span className="block text-xs text-muted">{t("github.desc")}</span>
               </div>
             </div>
             <span className="text-muted group-hover:translate-x-1 transition-transform">→</span>
@@ -67,17 +69,17 @@ export function Contact() {
         </div>
 
         <div className="mt-8 text-[10px] text-muted text-center w-full">
-          © 2026 Jules L. — Backend & DevOps
+          {t("footer")}
         </div>
       </div>
 
       {/* Desktop */}
       <div className="hidden md:flex h-full w-full flex-col items-center justify-center relative overflow-hidden bg-bg">
         <div className="z-10 flex flex-col items-center gap-8 w-full max-w-2xl px-6">
-          <h2 className="text-accent-a text-sm font-mono uppercase tracking-widest">Contact</h2>
-          <h3 className="text-4xl font-bold text-text">On discute ?</h3>
+          <h2 className="text-accent-a text-sm font-mono uppercase tracking-widest">{t("label")}</h2>
+          <h3 className="text-4xl font-bold text-text">{t("title")}</h3>
           <p className="text-base text-muted text-center max-w-xl">
-            Projet, opportunité ou discussion technique : contacte-moi.
+            {t("description")}
           </p>
 
           <div className="grid w-full gap-4">
@@ -90,8 +92,8 @@ export function Contact() {
                   <Mail size={18} />
                 </div>
                 <div className="text-left">
-                  <span className="block text-sm font-bold text-text">M'écrire</span>
-                  <span className="block text-xs text-muted">Réponse rapide</span>
+                  <span className="block text-sm font-bold text-text">{t("email.title")}</span>
+                  <span className="block text-xs text-muted">{t("email.desc")}</span>
                 </div>
               </div>
               <span className="text-muted group-hover:translate-x-1 transition-transform">→</span>
@@ -108,8 +110,8 @@ export function Contact() {
                   <Linkedin size={18} />
                 </div>
                 <div className="text-left">
-                  <span className="block text-sm font-bold text-text">LinkedIn</span>
-                  <span className="block text-xs text-muted">Mon profil pro</span>
+                  <span className="block text-sm font-bold text-text">{t("linkedin.title")}</span>
+                  <span className="block text-xs text-muted">{t("linkedin.desc")}</span>
                 </div>
               </div>
               <span className="text-muted group-hover:translate-x-1 transition-transform">→</span>
@@ -126,8 +128,8 @@ export function Contact() {
                   <Github size={18} />
                 </div>
                 <div className="text-left">
-                  <span className="block text-sm font-bold text-text">GitHub</span>
-                  <span className="block text-xs text-muted">Mon code</span>
+                  <span className="block text-sm font-bold text-text">{t("github.title")}</span>
+                  <span className="block text-xs text-muted">{t("github.desc")}</span>
                 </div>
               </div>
               <span className="text-muted group-hover:translate-x-1 transition-transform">→</span>
@@ -136,7 +138,7 @@ export function Contact() {
         </div>
 
         <footer className="absolute bottom-8 text-xs text-muted">
-          © 2026 Jules L. — Backend & DevOps
+          {t("footer")}
         </footer>
       </div>
     </section>

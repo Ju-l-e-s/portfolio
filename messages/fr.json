@@ -1,0 +1,160 @@
+{
+  "metadata": {
+    "title": "Jules Laconfourque – Développeur Backend & DevOps",
+    "description": "Développeur Backend avec mindset DevOps. Python, Node.js, AWS, Docker, CI/CD."
+  },
+  "nav": {
+    "intro": "Intro",
+    "story": "À propos",
+    "process": "Workflow",
+    "services": "Expertise",
+    "projects": "Projets",
+    "contact": "Contact",
+    "cta": "Me Contacter"
+  },
+  "hero": {
+    "title": "Du Code\nau Cloud,\nsans friction.",
+    "subtitle": "Développeur Backend orienté DevOps. Je construis l'infrastructure invisible qui rend vos applications résilientes et vos déploiements prévisibles.",
+    "role": "Développeur Backend & DevOps",
+    "cta_projects": "Voir mes projets",
+    "cta_contact": "Me contacter",
+    "terminal": {
+      "line1": "CLOUD NATIVE: AWS · Docker",
+      "line2": "DELIVERY: CI/CD · Tests · Observability",
+      "line3": "BACKEND: JavaScript/Node.js · Python/FastAPI",
+      "help": "Bienvenue ! Tape 'help' pour voir les commandes disponibles."
+    }
+  },
+  "about": {
+    "label": "À propos",
+    "title": "Du code au cloud",
+    "hook": "Je ne veux pas juste que ça marche. Je veux que ça tourne en prod, stable et mesurable.",
+    "description": "Ce qui m’intéresse, ce n’est pas seulement “que ça marche sur ma machine”, c’est que ça tourne en production, de façon stable, mesurable et résiliente. Je conçois des APIs et l’infrastructure légère autour : conteneurs, CI/CD, environnements reproductibles, configuration propre, et une observabilité minimale (logs/metrics/alertes). Le résultat : moins de friction, plus de confiance à chaque release.",
+    "cards": {
+      "focus": {
+        "title": "Focus",
+        "desc": "APIs · Cloud delivery · DevOps"
+      },
+      "deliverable": {
+        "title": "Livrable",
+        "desc": "CI/CD + déploiement, environnements (dev/staging/prod), tests/lint/checks essentiels."
+      },
+      "method": {
+        "title": "Méthode",
+        "desc": "Itérations courtes, décisions explicites, infra versionnée, obs par défaut (logs/metrics/alertes)."
+      }
+    }
+  },
+  "services": {
+    "id": "02.",
+    "label": "Services",
+    "title": "Engineering Premium",
+    "subtitle": "Domaines d'exécution",
+    "description": "Je construis des bases techniques qui aident une équipe à livrer vite sans perdre en fiabilité : infrastructure versionnée, pipelines de déploiement, automatisation et visibilité sur ce qui se passe en prod.",
+    "guideline": "Ligne directrice : rigueur, automation, mesure.",
+    "list": {
+      "cicd": {
+        "tech": "GitHub Actions · déploiements",
+        "title": "Pipelines CI/CD"
+      },
+      "iac": {
+        "tech": "Terraform · AWS · environnements",
+        "title": "Infrastructure as Code"
+      },
+      "backend": {
+        "tech": "Node.js · Python · APIs",
+        "title": "Backend & APIs"
+      },
+      "dx": {
+        "tech": "Outillage · préviews",
+        "title": "DX & Tooling"
+      },
+      "security": {
+        "tech": "Scans · secrets",
+        "title": "Sécurité (bases)"
+      },
+      "observability": {
+        "tech": "Logs · metrics · traces",
+        "title": "Observabilité (bases)"
+      }
+    }
+  },
+  "workflow": {
+    "id": "03.",
+    "label": "Workflow",
+    "title": "Un processus transparent",
+    "description": "Pas de boîte noire. Juste une méthodologie éprouvée pour livrer de la qualité à chaque itération.",
+    "steps": {
+      "scoping": {
+        "step": "01",
+        "title": "Cadrage",
+        "desc": "Objectif, contraintes, critères de succès, définition du “done”.",
+        "tag": "Specs & KPIs"
+      },
+      "planning": {
+        "step": "02",
+        "title": "Plan",
+        "desc": "Architecture simple, jalons courts, priorité au résultat visible.",
+        "tag": "Architecture"
+      },
+      "build": {
+        "step": "03",
+        "title": "Build",
+        "desc": "Code propre, itérations rapides, environnement reproductible.",
+        "tag": "Dev & Tests"
+      },
+      "delivery": {
+        "step": "04",
+        "title": "Livraison",
+        "desc": "CI/CD, tests essentiels, documentation et prise en main.",
+        "tag": "CI/CD & Docs"
+      }
+    }
+  },
+  "projects": {
+    "label": "Portfolio",
+    "title": "Projets",
+    "swipe_hint": "Swipe",
+    "view_all": "Voir tous mes projets",
+    "list": {
+      "crm": {
+        "tag": "Python",
+        "title": "CRM CLI – Gestion commerciale",
+        "description": "Application CLI en Python pour gérer des utilisateurs, des clients et des contrats. Ce projet intègre une architecture claire (MVC), une authentification sécurisée par JWT, et une gestion fine des rôles utilisateurs."
+      },
+      "secure_url": {
+        "tag": "Python",
+        "title": "Secure URL Analysis Tool",
+        "description": "Outil conteneurisé permettant d’analyser des URL potentiellement malveillantes sans exposer son système. Sécurité renforcée grâce à Docker, multiples couches d’isolation et détection avancée (redirections, phishing, etc.)."
+      },
+      "social": {
+        "tag": "React",
+        "title": "Social Network – Réseau d’entreprise",
+        "description": "Application web de réseau social interne pour entreprise. Authentification, publication de posts, gestion des utilisateurs et interactions. Full-stack JavaScript avec React côté client et Node.js côté serveur."
+      },
+      "scraping": {
+        "tag": "Python",
+        "title": "Scraping & APIs",
+        "description": "Plusieurs projets de scraping web (livres, entreprises, etc.) enrichis par des APIs externes. Extraction, structuration et automatisation de données pour analyses ou intégration."
+      }
+    }
+  },
+  "contact": {
+    "label": "Contact",
+    "title": "On discute ?",
+    "description": "Projet, opportunité ou discussion technique : contacte-moi.",
+    "email": {
+      "title": "M'écrire",
+      "desc": "Réponse rapide"
+    },
+    "linkedin": {
+      "title": "LinkedIn",
+      "desc": "Mon profil pro"
+    },
+    "github": {
+      "title": "GitHub",
+      "desc": "Mon code"
+    },
+    "footer": "© 2026 Jules L. — Backend & DevOps"
+  }
+}

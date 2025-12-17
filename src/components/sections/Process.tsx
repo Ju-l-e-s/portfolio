@@ -2,19 +2,19 @@
 
 import { motion } from "framer-motion";
 import { processSteps } from "@/lib/data";
-import { Search, Code, Cloud, Rocket } from "lucide-react";
+import { Search, Code, Cloud, Rocket, type LucideIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
-const iconMap = {
-  1: Search,
-  2: Code,
-  3: Cloud,
-  4: Rocket,
+const iconMap: Record<string, LucideIcon> = {
+  scoping: Search,
+  planning: Code,
+  build: Cloud,
+  delivery: Rocket,
 };
 
-// Tags for each step
-const tags = ["Specs & KPIs", "Architecture", "Dev & Tests", "CI/CD & Docs"];
-
 export function Process() {
+  const t = useTranslations("workflow");
+
   return (
     <section
       id="process"
@@ -22,20 +22,21 @@ export function Process() {
     >
       <div className="mx-auto max-w-7xl w-full px-6 md:px-8">
         <div className="mb-8 max-w-2xl text-left sm:mb-10">
-        <span className="font-mono text-accent-a text-sm tracking-widest uppercase">03. Workflow</span>
-        <h2 className="mt-2 text-2xl font-bold text-text sm:text-4xl">Un processus transparent</h2>
+        <span className="font-mono text-accent-a text-sm tracking-widest uppercase">{t("id")} {t("label")}</span>
+        <h2 className="mt-2 text-2xl font-bold text-text sm:text-4xl">{t("title")}</h2>
         <p className="mt-3 text-base text-muted sm:text-lg">
-          Pas de boîte noire. Juste une méthodologie éprouvée pour livrer de la qualité à chaque itération.
+          {t("description")}
         </p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:gap-6 md:grid-cols-2">
         {processSteps.map((step, idx) => {
-          const Icon = iconMap[step.step as keyof typeof iconMap] || Code;
+          const key = step.id;
+          const Icon = iconMap[key] || Code;
 
           return (
             <motion.div
-              key={step.step}
+              key={key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -52,13 +53,13 @@ export function Process() {
                   </span>
                 </div>
 
-                <h3 className="mb-3 text-lg font-bold text-text sm:text-xl">{step.title}</h3>
-                <p className="text-sm leading-relaxed text-muted sm:text-base">{step.description}</p>
+                <h3 className="mb-3 text-lg font-bold text-text sm:text-xl">{t(`steps.${key}.title`)}</h3>
+                <p className="text-sm leading-relaxed text-muted sm:text-base">{t(`steps.${key}.desc`)}</p>
               </div>
 
               <div className="mt-8 flex items-center justify-between border-t border-white/5 pt-6">
                 <span className="text-xs font-mono uppercase tracking-wider text-muted transition-colors group-hover:text-accent-a">
-                  {tags[idx]}
+                  {t(`steps.${key}.tag`)}
                 </span>
                 <div className="h-1.5 w-1.5 rounded-full bg-white/10 group-hover:bg-accent-a transition-colors" />
               </div>

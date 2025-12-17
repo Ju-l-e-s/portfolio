@@ -4,8 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { projects } from "@/lib/data";
 import { ChevronRight } from "lucide-react";
 import { ProjectIllustration } from "../ui/ProjectIllustrations";
+import { useTranslations } from "next-intl";
 
  export function Projects() {
+   const t = useTranslations("projects");
    const scrollRef = useRef<HTMLDivElement>(null);
    const [showHint, setShowHint] = useState(true);
 
@@ -27,13 +29,13 @@ import { ProjectIllustration } from "../ui/ProjectIllustrations";
        className="relative flex h-[100dvh] w-full snap-start scroll-mt-24 flex-col items-center justify-center overflow-hidden bg-bg"
      >
        <div className="mb-4 w-full max-w-7xl px-6 md:px-8 text-center md:text-left">
-         <h2 className="text-xs font-mono uppercase tracking-widest text-accent-a">Portfolio</h2>
-         <h3 className="text-2xl font-bold text-text">Projets</h3>
+         <h2 className="text-xs font-mono uppercase tracking-widest text-accent-a">{t("label")}</h2>
+         <h3 className="text-2xl font-bold text-text">{t("title")}</h3>
        </div>
 
        <div
          ref={scrollRef}
-         className="relative flex w-full max-w-7xl items-center gap-4 overflow-x-auto px-6 md:px-8 pb-10 snap-x snap-mandatory scrollbar-hide"
+         className="relative flex w-full max-w-7xl items-center gap-4 overflow-x-auto px-6 pb-10 snap-x snap-mandatory no-scrollbar"
          aria-label="Liste horizontale de projets"
        >
          <div
@@ -52,25 +54,25 @@ import { ProjectIllustration } from "../ui/ProjectIllustrations";
                    showHint ? "opacity-100 translate-x-0" : "opacity-0 translate-x-2"
                  }`}
                >
-                 <span className="animate-pulse text-text">Swipe</span>
+                 <span className="animate-pulse text-text">{t("swipe_hint")}</span>
                  <ChevronRight className="h-4 w-4 text-accent-a animate-wiggle-x" />
                </div>
              )}
 
              <div className="relative h-1/3 w-full shrink-0 bg-gradient-to-br from-gray-800 to-black">
                <ProjectIllustration name={project.illustration as "crm" | "security" | "social" | "scraping"} />
-               {project.tags[0] && (
+               {t(`list.${project.id}.tag`) && (
                  <div className="absolute left-3 top-3">
                    <span className="rounded border border-white/10 bg-black/60 px-2 py-1 text-[10px] text-white backdrop-blur">
-                     {project.tags[0]}
+                     {t(`list.${project.id}.tag`)}
                    </span>
                  </div>
                )}
              </div>
 
              <div className="flex flex-1 flex-col p-5">
-               <h4 className="mb-2 line-clamp-1 text-lg font-bold text-text">{project.title}</h4>
-               <p className="text-sm leading-relaxed text-muted line-clamp-4">{project.description}</p>
+               <h4 className="mb-2 line-clamp-1 text-lg font-bold text-text">{t(`list.${project.id}.title`)}</h4>
+               <p className="text-sm leading-relaxed text-muted line-clamp-4">{t(`list.${project.id}.description`)}</p>
              </div>
            </div>
          ))}
@@ -84,7 +86,7 @@ import { ProjectIllustration } from "../ui/ProjectIllustrations";
            rel="noopener noreferrer"
            className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-text transition hover:border-accent-a/40 hover:bg-accent-a/10"
          >
-           Voir tous mes projets <span className="text-base">↗</span>
+           {t("view_all")} <span className="text-base">↗</span>
          </a>
        </div>
      </section>

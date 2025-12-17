@@ -1,27 +1,30 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
-const COMMANDS = {
-  help: "Available commands: help, whoami, pwd, ls, cat [file], clear",
-  whoami: "Jules Laconfourque - DevOps & Backend Developer. Passionate about automation.",
-  pwd: "/home/visitor",
-  ls: "skills.json  contact.md  projects.txt  stack.txt",
-  "cat skills.json": JSON.stringify(
-    { backend: ["Node", "Go"], cloud: ["AWS", "K8s"], ci: ["GitHub Actions"] },
-    null,
-    2,
-  ),
-  "cat contact.md":
-    "Email: jules@example.com\nLinkedIn: https://linkedin.com/in/jules",
-  "cat projects.txt": "Check out the projects section below!",
-  "cat stack.txt":
-    "CLOUD NATIVE: AWS · Docker\nDELIVERY: CI/CD · Tests · Observability\nBACKEND: JavaScript/Node.js · Python/FastAPI",
-};
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 
 type HistoryLine = { cmd: string; output: string };
 
 export function InteractiveTerminal() {
+  const t = useTranslations("hero.terminal");
+  const COMMANDS = useMemo(
+    () => ({
+      help: t("help"),
+      whoami: "Jules Laconfourque - DevOps & Backend Developer. Passionate about automation.",
+      pwd: "/home/visitor",
+      ls: "skills.json  contact.md  projects.txt  stack.txt",
+      "cat skills.json": JSON.stringify(
+        { backend: ["Node", "Go"], cloud: ["AWS", "K8s"], ci: ["GitHub Actions"] },
+        null,
+        2,
+      ),
+      "cat contact.md":
+        "Email: jules@example.com\nLinkedIn: https://linkedin.com/in/jules",
+      "cat projects.txt": "Check out the projects section below!",
+      "cat stack.txt": `${t("line1")}\n${t("line2")}\n${t("line3")}`,
+    }),
+    [t]
+  );
   const [input, setInput] = useState("");
   const [isClosed, setIsClosed] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
@@ -29,10 +32,9 @@ export function InteractiveTerminal() {
   const [history, setHistory] = useState<HistoryLine[]>([
     {
       cmd: "",
-      output:
-        "CLOUD NATIVE: AWS · Docker\nDELIVERY: CI/CD · Tests · Observability\nBACKEND: JavaScript/Node.js · Python/FastAPI",
+      output: `${t("line1")}\n${t("line2")}\n${t("line3")}`,
     },
-    { cmd: "help", output: "Welcome! Type 'help' to see available commands." },
+    { cmd: "help", output: t("help") },
   ]);
   const inputRef = useRef<HTMLInputElement>(null);
   const outputContainerRef = useRef<HTMLDivElement>(null);
@@ -123,7 +125,7 @@ export function InteractiveTerminal() {
           {!isMinimized && (
             <div
               ref={outputContainerRef}
-              className={`space-y-2 overflow-y-auto bg-[#11151b] p-6 text-white/90 ${
+              className={`space-y-2 overflow-y-auto bg-[#11151b] p-6 text-white/90 no-scrollbar ${
                 isMaximized ? "h-[480px]" : "h-[320px]"
               }`}
             >

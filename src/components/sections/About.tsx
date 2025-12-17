@@ -1,24 +1,26 @@
 "use client";
 
-const profileCards = [
-  {
-    id: "01",
-    title: "Focus",
-    content: "APIs · Cloud delivery · DevOps",
-  },
-  {
-    id: "02",
-    title: "Livrable",
-    content: "CI/CD + déploiement, environnements (dev/staging/prod), tests/lint/checks essentiels.",
-  },
-  {
-    id: "03",
-    title: "Méthode",
-    content: "Itérations courtes, décisions explicites, infra versionnée, obs par défaut (logs/metrics/alertes).",
-  },
-];
+import { useTranslations } from "next-intl";
 
 export function About() {
+  const t = useTranslations("about");
+  const profileCards = [
+    {
+      id: "01",
+      title: t("cards.focus.title"),
+      content: t("cards.focus.desc"),
+    },
+    {
+      id: "02",
+      title: t("cards.deliverable.title"),
+      content: t("cards.deliverable.desc"),
+    },
+    {
+      id: "03",
+      title: t("cards.method.title"),
+      content: t("cards.method.desc"),
+    },
+  ];
   return (
     <section
       id="about"
@@ -28,12 +30,12 @@ export function About() {
         {/* Mobile layout */}
         <div className="md:hidden flex h-full flex-col justify-center gap-6">
           <div className="space-y-3 text-left max-w-md">
-            <h2 className="text-accent-a font-mono text-xs uppercase tracking-widest">À propos</h2>
+            <h2 className="text-accent-a font-mono text-xs uppercase tracking-widest">{t("label")}</h2>
             <h3 className="text-3xl font-bold tracking-tight text-text">
-              Du code au cloud.
+              {t("title")}
             </h3>
             <p className="text-base leading-relaxed text-muted">
-              Je ne veux pas juste que ça marche. Je veux que ça tourne en prod, stable et mesurable.
+              {t("hook")}
             </p>
           </div>
 
@@ -58,12 +60,12 @@ export function About() {
         {/* Desktop layout */}
         <div className="hidden h-full w-full md:flex md:items-center md:justify-between md:gap-10">
           <div className="flex-1 space-y-4">
-            <h2 className="text-accent-a font-mono text-xs uppercase tracking-widest">À propos</h2>
+            <h2 className="text-accent-a font-mono text-xs uppercase tracking-widest">{t("label")}</h2>
             <h3 className="text-3xl font-bold tracking-tight text-text sm:text-4xl">
-              Du code au cloud
+              {t("title")}
             </h3>
             <p className="max-w-2xl text-base leading-relaxed text-muted">
-              Ce qui m’intéresse, ce n’est pas seulement “que ça marche sur ma machine”, c’est que ça tourne en production, de façon stable, mesurable et résiliente. Je conçois des APIs et l’infrastructure légère autour : conteneurs, CI/CD, environnements reproductibles, configuration propre, et une observabilité minimale (logs/metrics/alertes). Le résultat : moins de friction, plus de confiance à chaque release.
+              {t("description")}
             </p>
           </div>
 

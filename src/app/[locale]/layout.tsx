@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { setRequestLocale } from "next-intl/server";
 import "@/styles/globals.css";
 import { Background } from "@/components/Background";
 import { Header } from "@/components/Header";
@@ -29,28 +31,48 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Jules Laconfourque – Développeur",
   description: "Portfolio de Jules Laconfourque, développeur junior orienté DevOps.",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0",
 };
 
-export default function RootLayout({
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
+export function generateStaticParams() {
+  return [{ locale: "fr" }, { locale: "en" }];
+}
+
+export default async function LocaleLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }>) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const messages =
+    (await import(`../../../messages/${locale}.json`).catch(() => null))?.default ??
+    (await import("../../../messages/fr.json")).default;
+
   return (
     <html
-      lang="fr"
+      lang={locale}
       className={`${inter.variable} ${jetBrainsMono.variable} ${spaceGrotesk.variable} scroll-smooth snap-y snap-mandatory`}
     >
       <body className="font-sans bg-base text-text overflow-x-hidden">
-        <ReducedMotionWrapper>
-          <Background />
-          <Header />
-          <CustomCursor />
-          <ConsoleEgg />
-          {children}
-          <ScrollToTop />
-        </ReducedMotionWrapper>
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <ReducedMotionWrapper>
+            <Background />
+            <Header />
+            <CustomCursor />
+            <ConsoleEgg />
+            {children}
+            <ScrollToTop />
+          </ReducedMotionWrapper>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
