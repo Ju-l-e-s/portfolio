@@ -9,6 +9,7 @@ import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ConsoleEgg } from "@/components/ConsoleEgg";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -81,6 +82,7 @@ export default async function LocaleLayout({
             <ConsoleEgg />
             {children}
             <ScrollToTop />
+            <Analytics />
           </ReducedMotionWrapper>
         </NextIntlClientProvider>
       </body>
