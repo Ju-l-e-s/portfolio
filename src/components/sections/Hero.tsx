@@ -106,6 +106,9 @@ export function Hero() {
             {/* Right side */}
             <motion.div variants={itemVariants} className="hidden lg:block">
               <InteractiveTerminal />
+              <p className="mt-2 text-center text-xs text-muted font-mono">
+                Essayez de taper <code className="rounded bg-white/10 px-1.5 py-1 text-accent-a">help</code>
+              </p>
             </motion.div>
           </div>
         </div>

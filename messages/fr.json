@@ -48,10 +48,8 @@
   "services": {
     "id": "02.",
     "label": "Services",
-    "title": "Engineering Premium",
     "subtitle": "Domaines d'exécution",
     "description": "Je construis des bases techniques qui aident une équipe à livrer vite sans perdre en fiabilité : infrastructure versionnée, pipelines de déploiement, automatisation et visibilité sur ce qui se passe en prod.",
-    "guideline": "Ligne directrice : rigueur, automation, mesure.",
     "list": {
       "cicd": {
         "tech": "GitHub Actions · déploiements",
@@ -71,11 +69,11 @@
       },
       "security": {
         "tech": "Scans · secrets",
-        "title": "Sécurité (bases)"
+        "title": "Sécurité"
       },
       "observability": {
         "tech": "Logs · metrics · traces",
-        "title": "Observabilité (bases)"
+        "title": "Observabilité"
       }
     }
   },
@@ -119,7 +117,7 @@
     "list": {
       "crm": {
         "tag": "Python",
-        "title": "CRM CLI – Gestion commerciale",
+        "title": "CRM CLI",
         "description": "Application CLI en Python pour gérer des utilisateurs, des clients et des contrats. Ce projet intègre une architecture claire (MVC), une authentification sécurisée par JWT, et une gestion fine des rôles utilisateurs."
       },
       "secure_url": {
@@ -129,7 +127,7 @@
       },
       "social": {
         "tag": "React",
-        "title": "Social Network – Réseau d’entreprise",
+        "title": "Réseau social",
         "description": "Application web de réseau social interne pour entreprise. Authentification, publication de posts, gestion des utilisateurs et interactions. Full-stack JavaScript avec React côté client et Node.js côté serveur."
       },
       "scraping": {

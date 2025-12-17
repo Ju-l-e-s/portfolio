@@ -9,7 +9,7 @@ export function InteractiveTerminal() {
   const t = useTranslations("hero.terminal");
   const COMMANDS = useMemo(
     () => ({
-      help: t("help"),
+      help: "Available commands: help, whoami, pwd, ls, cat [file], clear",
       whoami: "Jules Laconfourque - DevOps & Backend Developer. Passionate about automation.",
       pwd: "/home/visitor",
       ls: "skills.json  contact.md  projects.txt  stack.txt",
@@ -32,9 +32,8 @@ export function InteractiveTerminal() {
   const [history, setHistory] = useState<HistoryLine[]>([
     {
       cmd: "",
-      output: `${t("line1")}\n${t("line2")}\n${t("line3")}`,
+      output: `${t("line1")}\n${t("line2")}\n${t("line3")}\n\n${t("help")}`,
     },
-    { cmd: "help", output: t("help") },
   ]);
   const inputRef = useRef<HTMLInputElement>(null);
   const outputContainerRef = useRef<HTMLDivElement>(null);

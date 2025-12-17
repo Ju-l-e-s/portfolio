@@ -1,11 +1,3 @@
-// Static content used across the portfolio
-export const processSteps = [
-  { id: "scoping" },
-  { id: "planning" },
-  { id: "build" },
-  { id: "delivery" },
-];
-
 export const projects = [
   {
     id: "crm",
@@ -32,4 +24,3 @@ export const projects = [
     illustration: "scraping",
   },
 ];
-

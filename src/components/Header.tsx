@@ -10,6 +10,50 @@ import { useMotionPreference } from "./ReducedMotionWrapper";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useLocale, useTranslations } from "next-intl";
 
+function LogoMark() {
+  return (
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 120 100"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className="h-8 w-8 sm:h-10 sm:w-10"
+    >
+      <path
+        d="M35 30 L15 50 L35 70"
+        stroke="currentColor"
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="text-accent-a"
+      />
+      <path
+        d="M50 25 V65 C50 75 45 80 35 80"
+        stroke="currentColor"
+        strokeWidth="8"
+        strokeLinecap="round"
+        className="text-text"
+      />
+      <path
+        d="M65 25 V75 H80"
+        stroke="currentColor"
+        strokeWidth="8"
+        strokeLinecap="round"
+        className="text-accent-a"
+      />
+      <path
+        d="M85 30 L105 50 L85 70"
+        stroke="currentColor"
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="text-accent-a"
+      />
+    </svg>
+  );
+}
+
 export function Header() {
   const t = useTranslations("nav");
   const locale = useLocale();
@@ -65,55 +109,20 @@ export function Header() {
   return (
     <header
       className={clsx(
-        "sticky top-0 left-0 z-50 w-full transition-colors duration-300",
+        "fixed top-0 z-50 w-full border-b border-white/5 bg-bg/80 backdrop-blur-md transition-all",
         hasScrolled
-          ? "bg-bg/80 backdrop-blur-lg border-b border-line"
-          : "bg-transparent"
+          ? "border-line"
+          : "border-transparent bg-transparent backdrop-blur-0"
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-        <Link href="/" locale={locale} className="flex items-center gap-3">
-          <svg
-            width="40"
-            height="40"
-            viewBox="0 0 120 100"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-8 w-8 sm:h-10 sm:w-10"
-          >
-            <path
-              d="M35 30 L15 50 L35 70"
-              stroke="currentColor"
-              strokeWidth="8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-accent-a"
-            />
-            <path
-              d="M50 25 V65 C50 75 45 80 35 80"
-              stroke="currentColor"
-              strokeWidth="8"
-              strokeLinecap="round"
-              className="text-text"
-            />
-            <path
-              d="M65 25 V75 H80"
-              stroke="currentColor"
-              strokeWidth="8"
-              strokeLinecap="round"
-              className="text-accent-a"
-            />
-            <path
-              d="M85 30 L105 50 L85 70"
-              stroke="currentColor"
-              strokeWidth="8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="text-accent-a"
-            />
-          </svg>
-          <span className="font-semibold text-lg">Jules L.</span>
-        </Link>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+        {/* ZONE GAUCHE : Logo */}
+        <div className="z-50">
+          <Link href="/" locale={locale} className="flex items-center gap-3">
+            <LogoMark />
+            <span className="font-semibold text-lg">Jules L.</span>
+          </Link>
+        </div>
 
         <nav className="hidden md:flex items-center gap-1 rounded-md border border-line bg-surface p-1">
           {visibleLinks.map((link) => (
@@ -151,105 +160,75 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        {/* ZONE DROITE : Langue + Burger / CTA */}
+        <div className="z-50 flex items-center gap-4">
           <LanguageSwitcher />
-          <a
-            href="#contact"
-            className="hidden md:inline-flex rounded-md bg-accent-a px-3 py-2 text-xs font-semibold text-bg transition-transform hover:scale-105 sm:px-4 sm:text-sm"
-          >
-            {t("cta")}
-          </a>
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden rounded-md p-3 text-muted transition-colors hover:text-text"
-            aria-label="Toggle mobile menu"
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="md:hidden p-2"
+            aria-label="Open menu"
           >
-            <Menu size={24} />
+            <Menu className="h-6 w-6 text-text" />
           </button>
+          <div className="hidden md:block">
+            <a
+              href="#contact"
+              className="rounded-md bg-accent-a px-3 py-2 text-xs font-semibold text-bg transition-transform hover:scale-105 sm:px-4 sm:text-sm"
+            >
+              {t("cta")}
+            </a>
+          </div>
         </div>
       </div>
 
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 z-[100] flex h-[100dvh] w-screen flex-col bg-bg px-6 py-4 md:hidden">
-          <div className="mb-12 flex w-full items-center justify-between">
-            <Link
-              href="/"
-              locale={locale}
-              className="flex items-center gap-3"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 120 100"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 sm:h-10 sm:w-10"
+        <div className="fixed inset-0 z-[100] flex h-[100dvh] w-screen flex-col bg-bg md:hidden">
+          {/* HEADER DU MENU : copie exacte des dimensions du header principal */}
+          <div className="flex h-20 w-full items-center justify-between px-6 border-b border-white/5">
+            <div>
+              <Link
+                href="/"
+                locale={locale}
+                className="flex items-center gap-3"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                <path
-                  d="M35 30 L15 50 L35 70"
-                  stroke="currentColor"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-accent-a"
-                />
-                <path
-                  d="M50 25 V65 C50 75 45 80 35 80"
-                  stroke="currentColor"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  className="text-text"
-                />
-                <path
-                  d="M65 25 V75 H80"
-                  stroke="currentColor"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  className="text-accent-a"
-                />
-                <path
-                  d="M85 30 L105 50 L85 70"
-                  stroke="currentColor"
-                  strokeWidth="8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-accent-a"
-                />
-              </svg>
-              <span className="font-semibold text-lg">Jules L.</span>
-            </Link>
-            <div className="flex items-center gap-3">
+                <LogoMark />
+                <span className="font-semibold text-lg">Jules L.</span>
+              </Link>
+            </div>
+            <div className="flex items-center gap-4">
               <LanguageSwitcher />
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="p-2 text-muted transition-colors hover:text-text"
-                aria-label="Fermer le menu"
+                className="p-2 text-text hover:text-accent-a transition-colors"
+                aria-label="Close menu"
               >
-                <X size={28} />
+                <X className="h-6 w-6" />
               </button>
             </div>
           </div>
 
-          <nav className="flex flex-1 flex-col items-center justify-center gap-8 text-2xl font-bold">
-            {visibleLinks
-              .filter((link) => link.href !== "#contact")
-              .map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="transition-colors hover:text-accent-a"
-                  onClick={() => {
-                    setActiveLink(link.href);
-                    setIsMobileMenuOpen(false);
-                  }}
-                >
-                  {t(link.key)}
-                </Link>
-              ))}
-          </nav>
+          <div className="flex flex-1 flex-col justify-center px-6">
+            <nav className="flex flex-col items-center justify-center gap-8 text-2xl font-bold">
+              {visibleLinks
+                .filter((link) => link.href !== "#contact")
+                .map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="transition-colors hover:text-accent-a"
+                    onClick={() => {
+                      setActiveLink(link.href);
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    {t(link.key)}
+                  </Link>
+                ))}
+            </nav>
+          </div>
 
-          <div className="mb-8 w-full">
+          <div className="px-6 pb-8">
             <a
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}

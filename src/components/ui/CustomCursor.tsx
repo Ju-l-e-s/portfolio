@@ -13,12 +13,14 @@ export function CustomCursor() {
   const [visible, setVisible] = useState(false);
   const [hover, setHover] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
+  const dotX = useMotionValue(0);
+  const dotY = useMotionValue(0);
+  const ringX = useMotionValue(0);
+  const ringY = useMotionValue(0);
 
   const springConfig = { stiffness: 450, damping: 40, mass: 0.6 };
-  const trailX = useSpring(x, springConfig);
-  const trailY = useSpring(y, springConfig);
+  const trailX = useSpring(ringX, springConfig);
+  const trailY = useSpring(ringY, springConfig);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -38,8 +40,10 @@ export function CustomCursor() {
     const handleMove = (e: MouseEvent) => {
       if (!isDesktop) return;
       setVisible(true);
-      x.set(e.clientX);
-      y.set(e.clientY);
+      dotX.set(e.clientX - 4);
+      dotY.set(e.clientY - 4);
+      ringX.set(e.clientX - 20);
+      ringY.set(e.clientY - 20);
     };
 
     const handleOver = (e: MouseEvent) => {
@@ -65,7 +69,7 @@ export function CustomCursor() {
       mediaQuery.removeEventListener("change", updateDesktop);
       document.body.style.cursor = "";
     };
-  }, [isDesktop, x, y]);
+  }, [dotX, dotY, isDesktop, ringX, ringY]);
 
   if (!visible || !isDesktop) return null;
 
@@ -74,21 +78,15 @@ export function CustomCursor() {
       <motion.div
         className="fixed h-2 w-2 rounded-full bg-accent-a shadow-[0_0_12px_rgba(255,92,122,0.6)]"
         style={{
-          left: 0,
-          top: 0,
-          translateX: x,
-          translateY: y,
+          left: dotX,
+          top: dotY,
         }}
       />
       <motion.div
         className="fixed h-10 w-10 rounded-full border border-accent-a/60 bg-accent-a/10 backdrop-blur-sm"
         style={{
-          left: 0,
-          top: 0,
-          translateX: trailX,
-          translateY: trailY,
-          x: "-50%",
-          y: "-50%",
+          left: trailX,
+          top: trailY,
           mixBlendMode: hover ? "difference" : "normal",
           opacity: hover ? 0.9 : 0.6,
           scale: hover ? 1.35 : 1,

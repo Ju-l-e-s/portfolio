@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { ExpandableText } from "@/components/ui/ExpandableText";
 
 export function About() {
   const t = useTranslations("about");
@@ -28,8 +29,8 @@ export function About() {
     >
       <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-10 px-6 md:px-8">
         {/* Mobile layout */}
-        <div className="md:hidden flex h-full flex-col justify-center gap-6">
-          <div className="space-y-3 text-left max-w-md">
+        <div className="md:hidden flex h-full flex-col justify-center gap-4">
+          <div className="space-y-2 text-left max-w-md">
             <h2 className="text-accent-a font-mono text-xs uppercase tracking-widest">{t("label")}</h2>
             <h3 className="text-3xl font-bold tracking-tight text-text">
               {t("title")}
@@ -37,13 +38,16 @@ export function About() {
             <p className="text-base leading-relaxed text-muted">
               {t("hook")}
             </p>
+            <ExpandableText maxLines={4} className="text-sm leading-relaxed text-muted">
+              {t("description")}
+            </ExpandableText>
           </div>
 
-          <div className="flex w-full gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
+          <div className="flex w-full items-stretch gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
             {profileCards.map((card) => (
               <div
                 key={card.id}
-                className="flex min-w-[78%] flex-col gap-3 rounded-2xl border border-white/10 bg-surface/50 px-5 py-5 snap-center shadow-sm"
+                className="flex h-[240px] min-w-[78%] flex-col gap-3 rounded-2xl border border-white/10 bg-surface/50 px-5 py-5 snap-center shadow-sm"
               >
                 <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-muted">
                   <span className="flex h-8 w-8 items-center justify-center rounded-md border border-white/10 bg-white/5 text-accent-a font-semibold">
@@ -51,7 +55,9 @@ export function About() {
                   </span>
                   <span className="text-text">{card.title}</span>
                 </div>
-                <p className="text-sm leading-relaxed text-muted">{card.content}</p>
+                <ExpandableText maxLines={3} className="text-sm leading-relaxed text-muted">
+                  {card.content}
+                </ExpandableText>
               </div>
             ))}
           </div>
@@ -81,7 +87,9 @@ export function About() {
                   </span>
                   <span className="text-text">{card.title}</span>
                 </div>
-                <p className="text-sm leading-relaxed text-muted">{card.content}</p>
+                <ExpandableText maxLines={3} className="text-sm leading-relaxed text-muted">
+                  {card.content}
+                </ExpandableText>
               </div>
             ))}
           </div>

@@ -48,10 +48,8 @@
   "services": {
     "id": "02.",
     "label": "Services",
-    "title": "Premium Engineering",
     "subtitle": "Scope of Work",
     "description": "I lay the technical groundwork that empowers teams to ship faster without breaking things. This means versioned infrastructure, automated deployment pipelines, and full visibility into production systems.",
-    "guideline": "North Star: Rigor, Automation, Metrics.",
     "list": {
       "cicd": {
         "tech": "GitHub Actions · Deployments",
@@ -71,7 +69,7 @@
       },
       "security": {
         "tech": "Scans · Secrets Management",
-        "title": "Security Essentials"
+        "title": "Security"
       },
       "observability": {
         "tech": "Logs · Metrics · Traces",
@@ -119,7 +117,7 @@
     "list": {
       "crm": {
         "tag": "Python",
-        "title": "CRM CLI – Business Ops",
+        "title": "CRM CLI",
         "description": "A Python CLI tool for managing users, clients, and contracts. Features a strict MVC architecture, secure JWT authentication, and granular role-based access control (RBAC)."
       },
       "secure_url": {

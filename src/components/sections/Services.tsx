@@ -42,9 +42,6 @@ export function Services() {
             <span className="text-accent-a">{t("id")}</span>
             <span className="uppercase tracking-[0.2em]">{t("label")}</span>
           </div>
-          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-[11px] font-mono uppercase tracking-[0.14em] text-muted sm:px-4 sm:text-xs">
-            {t("title")}
-          </span>
         </div>
 
         <div className="mt-6 flex flex-col gap-4 lg:mt-8 lg:flex-row lg:items-end lg:justify-between">
@@ -55,9 +52,6 @@ export function Services() {
             <p className="text-base leading-relaxed text-muted sm:text-lg">
               {t("description")}
             </p>
-          </div>
-          <div className="text-sm font-mono uppercase tracking-[0.14em] text-muted">
-            {t("guideline")}
           </div>
         </div>
 
