@@ -7,24 +7,31 @@ export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const scrollRoot = document.getElementById("snap-scroll-root");
+
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
+      const scrollY = scrollRoot ? scrollRoot.scrollTop : window.pageYOffset;
+      if (scrollY > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    const target: HTMLElement | Window = scrollRoot ?? window;
+    target.addEventListener('scroll', toggleVisibility as EventListener);
 
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    return () => target.removeEventListener('scroll', toggleVisibility as EventListener);
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    const scrollRoot = document.getElementById("snap-scroll-root");
+    if (scrollRoot) {
+      scrollRoot.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

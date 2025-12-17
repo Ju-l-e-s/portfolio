@@ -49,11 +49,17 @@ export function Header() {
 
   // Scroll detection for header background
   useEffect(() => {
+    const scrollRoot = document.getElementById("snap-scroll-root");
+
     const handleScroll = () => {
-      setHasScrolled(window.scrollY > 20);
+      const scrollY = scrollRoot ? scrollRoot.scrollTop : window.scrollY;
+      setHasScrolled(scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    const target: HTMLElement | Window = scrollRoot ?? window;
+    target.addEventListener("scroll", handleScroll as EventListener);
+    handleScroll();
+    return () => target.removeEventListener("scroll", handleScroll as EventListener);
   }, []);
 
   // Active link detection based on scroll position

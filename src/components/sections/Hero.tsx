@@ -26,9 +26,9 @@ export function Hero() {
   };
 
   return (
-<section
+    <section
       id="hero"
-      className="relative w-full h-[100dvh] overflow-hidden snap-start flex flex-col items-center justify-center px-4"
+      className="relative w-full h-[100svh] md:h-[100dvh] overflow-hidden snap-start snap-always flex flex-col items-center justify-center px-4"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-white/0" aria-hidden />
       

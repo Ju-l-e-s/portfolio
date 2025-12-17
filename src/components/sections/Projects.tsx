@@ -12,7 +12,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="relative flex h-[100dvh] w-full snap-start scroll-mt-24 flex-col items-center justify-center overflow-hidden bg-bg"
+      className="relative flex h-[100svh] md:h-[100dvh] w-full snap-start snap-always scroll-mt-24 flex-col items-center justify-center overflow-hidden bg-bg pb-[max(6rem,env(safe-area-inset-bottom))] md:pb-0"
     >
       <div className="mb-4 w-full max-w-7xl px-6 md:px-8 text-center md:text-left">
         <h2 className="text-xs font-mono uppercase tracking-widest text-accent-a">{t("label")}</h2>

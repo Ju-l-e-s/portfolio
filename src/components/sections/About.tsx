@@ -25,7 +25,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative w-full h-[100dvh] overflow-hidden snap-start scroll-mt-24 flex flex-col items-center justify-center bg-bg"
+      className="relative w-full h-[100svh] md:h-[100dvh] overflow-hidden snap-start snap-always scroll-mt-24 flex flex-col items-center justify-center bg-bg"
     >
       <div className="mx-auto flex h-full w-full max-w-6xl flex-col justify-center gap-10 px-6 md:px-8">
         {/* Mobile layout */}
@@ -38,28 +38,9 @@ export function About() {
             <p className="text-base leading-relaxed text-muted">
               {t("hook")}
             </p>
-            <ExpandableText maxLines={4} className="text-sm leading-relaxed text-muted">
+            <p className="text-sm leading-relaxed text-muted">
               {t("description")}
-            </ExpandableText>
-          </div>
-
-          <div className="flex w-full items-stretch gap-4 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide">
-            {profileCards.map((card) => (
-              <div
-                key={card.id}
-                className="flex h-[240px] min-w-[78%] flex-col gap-3 rounded-2xl border border-white/10 bg-surface/50 px-5 py-5 snap-center shadow-sm"
-              >
-                <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-[0.2em] text-muted">
-                  <span className="flex h-8 w-8 items-center justify-center rounded-md border border-white/10 bg-white/5 text-accent-a font-semibold">
-                    {card.id}
-                  </span>
-                  <span className="text-text">{card.title}</span>
-                </div>
-                <ExpandableText maxLines={3} className="text-sm leading-relaxed text-muted">
-                  {card.content}
-                </ExpandableText>
-              </div>
-            ))}
+            </p>
           </div>
         </div>
 

@@ -6,7 +6,7 @@ import { useTranslations } from "next-intl";
 export function Contact() {
   const t = useTranslations("contact");
   return (
-    <section id="contact" className="relative w-full snap-start h-[100dvh]">
+    <section id="contact" className="relative w-full snap-start snap-always h-[100svh] md:h-[100dvh] overflow-hidden">
       {/* Mobile */}
       <div className="mx-auto flex h-full w-full max-w-4xl flex-col items-center px-6 sm:px-8 md:hidden">
         <div className="flex w-full flex-1 flex-col items-center justify-center pb-8">

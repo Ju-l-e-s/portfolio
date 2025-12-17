@@ -72,9 +72,9 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${inter.variable} ${jetBrainsMono.variable} ${spaceGrotesk.variable} scroll-smooth overflow-x-hidden`}
+      className={`${inter.variable} ${jetBrainsMono.variable} ${spaceGrotesk.variable} overflow-x-hidden h-full`}
     >
-      <body className="font-sans bg-base text-text overflow-x-hidden snap-y snap-mandatory">
+      <body className="font-sans bg-base text-text overflow-hidden min-h-[100dvh]">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <ReducedMotionWrapper>
             <Background />
