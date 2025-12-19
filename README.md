@@ -1,12 +1,12 @@
-# Portfolio de Jules Laconfourque
+# Voici mon portfolio !
 
-Ce projet est le portfolio personnel de Jules Laconfourque, un développeur Backend & DevOps. Il est conçu comme une expérience web moderne, single-page, et entièrement responsive avec une navigation verticale de type "snap-scroll".
+Bienvenue sur le code source de mon portfolio personnel. Je suis Jules Laconfourque, développeur Backend & DevOps. Ce projet est une single-page-app moderne et responsive, avec une navigation verticale en "snap-scroll".
 
-## Architecture Détaillée
+## Architecture du Projet
 
-L'architecture de ce projet est basée sur Next.js avec le App Router, TypeScript, et Tailwind CSS. Elle est pensée pour être modulaire, facile à maintenir et à mettre à jour.
+J'ai basé l'architecture sur Next.js (App Router), TypeScript, et Tailwind CSS, en visant une approche modulaire et facile à maintenir.
 
-### 1. Stack Technique
+### 1. La Stack Technique
 
 *   **Framework**: [Next.js](https://nextjs.org/) (React avec App Router)
 *   **Langage**: [TypeScript](https://www.typescriptlang.org/)
@@ -14,9 +14,9 @@ L'architecture de ce projet est basée sur Next.js avec le App Router, TypeScrip
 *   **Animations**: [Framer Motion](https://www.framer.com/motion/)
 *   **Linting**: ESLint
 
-### 2. Structure des Dossiers
+### 2. Structure des Fichiers
 
-Voici un aperçu des dossiers et fichiers les plus importants pour comprendre l'organisation du projet :
+Voici un aperçu des dossiers importants pour comprendre l'organisation du projet :
 
 ```
 /
@@ -32,35 +32,31 @@ Voici un aperçu des dossiers et fichiers les plus importants pour comprendre l'
 └── package.json        # Scripts et dépendances du projet.
 ```
 
-### 3. Gestion des Données
+### 3. Gestion du Contenu
 
-Le contenu statique du site (textes, informations des projets, liens de navigation) est centralisé dans :
+J'ai centralisé tout le contenu statique (textes, projets, etc.) dans le dossier `src/content/`.
 
-* `src/config/site.ts` pour la configuration du site (navigation, liens).
-* `src/content/portfolio.ts` pour les données métiers (projets, étapes de workflow).
-
-*   **Avantage** : Cela permet de modifier le contenu du site sans avoir à toucher à la logique ou à la structure des composants React. Ajouter un projet ou modifier une description se fait en éditant un simple objet JavaScript.
+*   **Avantage** : Ça me permet de modifier le contenu du site très facilement, sans devoir toucher à la logique des composants React.
 
 ### 4. Composants & Design
 
 L'approche est modulaire :
-*   **`components/sections/`** : Chaque fichier correspond à une section verticale de la page (`<section>`). Ces composants sont responsables de la structure générale de la section.
-*   **`components/ui/`** : Contient des composants plus petits et génériques qui sont utilisés à plusieurs endroits. Par exemple, `ProfileCard.tsx` et `ProjectCard.tsx` sont des composants UI réutilisables.
+*   **`components/sections/`** : Chaque fichier correspond à une grande section de la page (Héro, À propos, etc.).
+*   **`components/ui/`** : Contient les petits composants réutilisables (boutons, cartes, etc.).
 
 ### 5. Layout & Navigation
 
-La navigation est l'un des piliers de l'expérience utilisateur de ce site.
+La navigation est un point clé de l'expérience sur ce site.
 
-*   **Snap Scroll Vertical** : Le conteneur principal (`<html>`) est configuré avec `snap-y snap-mandatory`. Chaque composant de section a une hauteur de `100dvh` et `snap-start`, forçant le défilement à s'arrêter précisément sur une section à la fois.
-*   **Header `sticky`** : Le header utilise `position: sticky` pour rester visible en haut de la page lors du défilement.
-*   **Gestion de l'Offset du Header** : Pour éviter que le header ne masque le haut des sections lors du snap, un `scroll-padding-top` est appliqué à l'élément `<html>`. Cela crée un décalage au point de "snap", assurant que chaque section s'aligne parfaitement sous le header.
+*   **Snap Scroll Vertical** : J'ai configuré le scroll pour qu'il "s'aimante" sur chaque section, qui fait 100% de la hauteur de l'écran (`100dvh`).
+*   **Header `sticky`** : Le header reste visible en haut de l'écran pendant qu'on scrolle.
+*   **Gestion de l'Offset du Header** : Pour que le header ne cache pas le haut des sections, j'ai utilisé `scroll-padding-top`.
 
 ### 6. Responsive Design
 
-Le design est "mobile-first". Les styles par défaut s'appliquent aux petits écrans. Les classes préfixées par `md:` (ex: `md:hidden`) sont utilisées pour adapter la mise en page aux écrans plus grands.
-
-*   **Logique de Rendu Conditionnel** : Pour des sections comme `Contact`, la structure du DOM est complètement différente entre mobile et desktop, en utilisant des `div` avec `md:hidden` et `hidden md:flex` pour afficher soit les boutons d'action (mobile), soit le formulaire complet (desktop).
+Le design est pensé "mobile-first".
+*   **Logique de Rendu Conditionnel** : Pour la section Contact, par exemple, la version mobile affiche des boutons d'action rapides, tandis que la version desktop affiche un formulaire plus classique.
 
 ---
 
-Ce document peut être complété au besoin pour refléter l'évolution du projet.
+N'hésitez pas à explorer le code !
