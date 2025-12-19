@@ -1,4 +1,4 @@
-import createMiddleware from "next-intl/middleware";
+  import createMiddleware from "next-intl/middleware";
 
 export default createMiddleware({
   locales: ["fr", "en"],
@@ -9,3 +9,4 @@ export default createMiddleware({
 export const config = {
   matcher: ["/", "/(fr|en)/:path*"],
 };
+

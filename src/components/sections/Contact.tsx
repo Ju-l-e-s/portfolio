@@ -5,6 +5,20 @@ import { useTranslations } from "next-intl";
 
 export function Contact() {
   const t = useTranslations("contact");
+  const encodedEmail = "Y29udGFjdEBqdWxlc2xhY29uZm91cnF1ZS5mcg=="; // base64 for contact@juleslaconfourque.fr
+
+  const handleEmailClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    try {
+      const decoded = typeof atob !== "undefined" ? atob(encodedEmail) : "";
+      if (decoded) {
+        window.location.href = `mailto:${decoded}`;
+      }
+    } catch (error) {
+      console.error("Unable to open mail client", error);
+    }
+  };
+
   return (
     <section id="contact" className="relative w-full snap-start snap-always h-[100svh] md:h-[100dvh] overflow-hidden">
       {/* Mobile */}
@@ -17,8 +31,10 @@ export function Contact() {
 
           <div className="flex w-full max-w-md flex-col gap-4">
             <a
-              href="mailto:contact@juleslaconfourque.fr"
+              href="#"
+              onClick={handleEmailClick}
               className="group flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4 transition-all active:scale-95 hover:bg-white/10"
+              aria-label={t("email.title")}
             >
               <div className="flex items-center gap-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent-a/20 text-accent-a">
@@ -84,8 +100,10 @@ export function Contact() {
 
           <div className="grid w-full gap-4">
             <a
-              href="mailto:jules.laconfourque@icloud.com"
+              href="#"
+              onClick={handleEmailClick}
               className="group flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all active:scale-95"
+              aria-label={t("email.title")}
             >
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-accent-a/20 flex items-center justify-center text-accent-a">

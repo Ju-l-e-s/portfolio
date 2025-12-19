@@ -63,6 +63,8 @@ export function Hero() {
                     src="/images/profile.png"
                     alt="Jules Laconfourque"
                     fill
+                    sizes="64px"
+                    priority
                     className="object-cover"
                   />
                 </div>

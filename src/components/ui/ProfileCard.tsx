@@ -13,6 +13,7 @@ export function ProfileCard() {
           alt="Jules Laconfourque"
           fill
           sizes="96px"
+          priority
           className="object-cover"
         />
       </div>
