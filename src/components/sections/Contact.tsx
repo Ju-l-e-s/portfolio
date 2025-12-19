@@ -2,10 +2,11 @@
 
 import { Github, Linkedin, Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { site } from "@/content/site";
 
 export function Contact() {
   const t = useTranslations("contact");
-  const encodedEmail = "Y29udGFjdEBqdWxlc2xhY29uZm91cnF1ZS5mcg=="; // base64 for contact@myDomainName.fr
+  const encodedEmail = site.contact.emailBase64;
 
   const handleEmailClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
@@ -49,7 +50,7 @@ export function Contact() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/jules-l-231377233/"
+              href={site.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-between rounded-xl border border-[#0077b5]/20 bg-[#0077b5]/10 p-4 transition-all active:scale-95 hover:bg-[#0077b5]/20"
@@ -67,7 +68,7 @@ export function Contact() {
             </a>
 
             <a
-              href="https://github.com/Ju-l-e-s/"
+              href={site.links.github}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4 transition-all active:scale-95 hover:bg-white/10"
@@ -118,7 +119,7 @@ export function Contact() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/jules-l-231377233/"
+              href={site.links.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-between p-4 rounded-xl bg-[#0077b5]/10 border border-[#0077b5]/20 hover:bg-[#0077b5]/20 transition-all active:scale-95"
@@ -136,7 +137,7 @@ export function Contact() {
             </a>
 
             <a
-              href="https://github.com/Ju-l-e-s/"
+              href={site.links.github}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all active:scale-95"

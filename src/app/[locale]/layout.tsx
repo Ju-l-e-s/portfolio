@@ -30,24 +30,34 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Jules Laconfourque – Développeur",
-  description: "Portfolio de Jules Laconfourque, développeur junior orienté DevOps.",
-  icons: {
-    icon: [
-      {
-        url: "/favicon-light.svg",
-        type: "image/svg+xml",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/favicon-dark.svg",
-        type: "image/svg+xml",
-        media: "(prefers-color-scheme: dark)",
-      },
-    ],
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const messages = (await import(`../../../messages/${locale}.json`)).default;
+  const meta = messages?.metadata ?? {};
+
+  return {
+    title: meta.title ?? "Jules Laconfourque – Développeur",
+    description: meta.description ?? "Portfolio de Jules Laconfourque, développeur junior orienté DevOps.",
+    icons: {
+      icon: [
+        {
+          url: "/favicon-light.svg",
+          type: "image/svg+xml",
+          media: "(prefers-color-scheme: light)",
+        },
+        {
+          url: "/favicon-dark.svg",
+          type: "image/svg+xml",
+          media: "(prefers-color-scheme: dark)",
+        },
+      ],
+    },
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",

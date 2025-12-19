@@ -7,9 +7,11 @@ import { HeroTitleReveal } from "../ui/HeroTitleReveal";
 import { InteractiveTerminal } from "../ui/InteractiveTerminal";
 import { ProfileCard } from "../ui/ProfileCard";
 import { useTranslations } from "next-intl";
+import { site } from "@/content/site";
 
 export function Hero() {
   const t = useTranslations("hero");
+  const { person, links } = site;
   const containerVariants = {
     hidden: { opacity: 0 },
     show: {
@@ -60,8 +62,8 @@ export function Hero() {
               <div className="flex items-center gap-4">
                 <div className="relative h-16 w-16 rounded-full border border-line bg-surface overflow-hidden">
                   <Image
-                    src="/images/profile.png"
-                    alt="Jules Laconfourque"
+                    src={person.image.src}
+                    alt={person.image.alt}
                     fill
                     sizes="64px"
                     priority
@@ -69,9 +71,9 @@ export function Hero() {
                   />
                 </div>
                 <div>
-                  <h2 className="text-xl font-bold text-text">Jules Laconfourque</h2>
+                  <h2 className="text-xl font-bold text-text">{person.name}</h2>
                   <p className="text-sm text-muted">{t("role")}</p>
-                  <a href="https://github.com/Ju-l-e-s/" target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-accent-a flex items-center gap-1 mt-2">
+                  <a href={links.github} target="_blank" rel="noopener noreferrer" className="text-xs font-mono text-accent-a flex items-center gap-1 mt-2">
                     <span>GITHUB</span> <span className="text-lg transition-transform group-hover:translate-x-1">↗</span>
                   </a>
                 </div>
@@ -109,7 +111,7 @@ export function Hero() {
             <motion.div variants={itemVariants} className="hidden lg:block">
               <InteractiveTerminal />
               <p className="mt-2 text-center text-xs text-muted font-mono">
-                Essayez de taper <code className="rounded bg-white/10 px-1.5 py-1 text-accent-a">help</code>
+                {t("terminal_hint")} <code className="rounded bg-white/10 px-1.5 py-1 text-accent-a">help</code>
               </p>
             </motion.div>
           </div>

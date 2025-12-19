@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Jules Laconfourque – Développeur Backend & DevOps",
-    "description": "Développeur Backend avec mindset DevOps. Python, Node.js, AWS, Docker, CI/CD."
+    "title": "Jules Laconfourque – Développeur",
+    "description": "Portfolio de Jules Laconfourque, développeur junior orienté DevOps."
   },
   "nav": {
     "intro": "Intro",
@@ -18,6 +18,7 @@
     "role": "Développeur Backend & DevOps",
     "cta_projects": "Voir mes projets",
     "cta_contact": "Me contacter",
+    "terminal_hint": "Essayez de taper",
     "terminal": {
       "line1": "CLOUD NATIVE: AWS · Docker",
       "line2": "DELIVERY: CI/CD · Tests · Observability",

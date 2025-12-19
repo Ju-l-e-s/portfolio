@@ -2,28 +2,39 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import { site } from "@/content/site";
 
 type HistoryLine = { cmd: string; output: string };
 
+const decodeBase64 = (value: string) => {
+  if (typeof atob !== "function") return "";
+  try {
+    return atob(value);
+  } catch {
+    return "";
+  }
+};
+
 export function InteractiveTerminal() {
   const t = useTranslations("hero.terminal");
+  const { contact, links, terminal } = site;
   const COMMANDS = useMemo(
-    () => ({
-      help: "Available commands: help, whoami, pwd, ls, cat [file], clear",
-      whoami: "Jules Laconfourque - DevOps & Backend Developer. Passionate about automation.",
-      pwd: "/home/visitor",
-      ls: "skills.json  contact.md  projects.txt  stack.txt",
-      "cat skills.json": JSON.stringify(
-        { backend: ["Node", "Go"], cloud: ["AWS", "K8s"], ci: ["GitHub Actions"] },
-        null,
-        2,
-      ),
-      "cat contact.md":
-        "Email: jules@example.com\nLinkedIn: https://linkedin.com/in/jules",
-      "cat projects.txt": "Check out the projects section below!",
-      "cat stack.txt": `${t("line1")}\n${t("line2")}\n${t("line3")}`,
-    }),
-    [t]
+    () => {
+      const decodedEmail = decodeBase64(contact.emailBase64);
+      const contactOutput = `${terminal.contactLabels.email}: ${decodedEmail}\n${terminal.contactLabels.linkedin}: ${links.linkedin}`;
+
+      return {
+        help: terminal.help,
+        whoami: terminal.whoami,
+        pwd: terminal.pwd,
+        ls: terminal.ls.join("  "),
+        "cat skills.json": JSON.stringify(terminal.files.skills, null, 2),
+        "cat contact.md": contactOutput,
+        "cat projects.txt": terminal.files.projects,
+        "cat stack.txt": `${t("line1")}\n${t("line2")}\n${t("line3")}`,
+      };
+    },
+    [contact.emailBase64, links.linkedin, t, terminal]
   );
   const [input, setInput] = useState("");
   const [isClosed, setIsClosed] = useState(false);
@@ -118,7 +129,7 @@ export function InteractiveTerminal() {
               className="h-3 w-3 rounded-full bg-[#27c93f] ring-2 ring-transparent transition hover:ring-[#27c93f]/40"
               onClick={() => setIsMaximized((v) => !v)}
             />
-            <div className="ml-2 font-sans">jules — -zsh</div>
+            <div className="ml-2 font-sans">{terminal.promptTitle}</div>
           </div>
 
           {!isMinimized && (

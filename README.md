@@ -21,10 +21,11 @@ Voici un aperçu des dossiers importants pour comprendre l'organisation du proje
 ```
 /
 ├── public/             # Contient les fichiers statiques (ex: images).
+├── messages/           # Textes multi-langues (FR/EN).
 ├── src/
 │   ├── app/            # Pages et layouts principaux (Next.js App Router).
 │   ├── components/     # Composants React, divisés en `sections` et `ui`.
-│   ├── content/        # Données et contenu du site (projets, textes, etc.).
+│   ├── content/        # Données structurées (projets, identité, liens, etc.).
 │   └── styles/         # Fichiers de style globaux.
 │
 ├── next.config.mjs     # Fichier de configuration principal de Next.js.
@@ -34,9 +35,13 @@ Voici un aperçu des dossiers importants pour comprendre l'organisation du proje
 
 ### 3. Gestion du Contenu
 
-J'ai centralisé tout le contenu statique (textes, projets, etc.) dans le dossier `src/content/`.
+Le contenu est centralisé pour éviter de modifier les composants :
 
-*   **Avantage** : Ça me permet de modifier le contenu du site très facilement, sans devoir toucher à la logique des composants React.
+*   **Textes multi-langues** : `messages/fr.json` et `messages/en.json`
+*   **Identité + liens** : `src/content/site.ts`
+*   **Projets** : `src/content/portfolio.ts`
+
+**Avantage** : Je peux modifier le contenu sans toucher à la logique des composants React.
 
 ### 4. Composants & Design
 
