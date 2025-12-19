@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 export function Contact() {
   const t = useTranslations("contact");
-  const encodedEmail = "Y29udGFjdEBqdWxlc2xhY29uZm91cnF1ZS5mcg=="; // base64 for contact@juleslaconfourque.fr
+  const encodedEmail = "Y29udGFjdEBqdWxlc2xhY29uZm91cnF1ZS5mcg=="; // base64 for contact@myDomainName.fr
 
   const handleEmailClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
